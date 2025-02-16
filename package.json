@@ -4,8 +4,7 @@
   "description": "Skincare Service Booking System",
   "main": "src/main.js",
   "scripts": {
-    "start": "node src/main.js",
-    "vercel-build": "node src/main.js"
+    "start": "node src/main.js"
   },
   "author": "",
   "dependencies": {

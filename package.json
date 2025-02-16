@@ -5,7 +5,8 @@
   "main": "src/main.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon src/main.js"
+    "start": "nodemon src/main.js",
+    "vercel-build": "node src/main.js"
   },
   "author": "",
   "license": "ISC",

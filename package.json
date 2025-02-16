@@ -4,10 +4,10 @@
   "description": "Skincare Service Booking System",
   "main": "src/main.js",
   "scripts": {
-    "start": "node src/main.js"
+    "start": "node src/main.js",
+    "vercel-build": "node src/main.js"
   },
   "author": "",
-  "license": "ISC",
   "dependencies": {
     "body-parser": "^1.20.3",
     "cookie-parser": "^1.4.7",
@@ -16,5 +16,9 @@
     "mongoose": "^8.10.0",
     "nodemon": "^3.1.9",
     "winston": "^3.17.0"
-  }
+  },
+  "engines": {
+    "node": ">=18.x"
+  },
+  "license": "MIT"
 }

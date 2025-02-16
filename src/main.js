@@ -32,6 +32,10 @@ mongoose
     logger.error("Failed to connect to MongoDB:", error);
   });
 
+app.get('/api/test', (req, res) => {
+  res.json({ message: 'API is working!' });
+});
+
 const server = app.listen(port, () => {
   logger.info(`Server is running at http://localhost:${port}`);
 });

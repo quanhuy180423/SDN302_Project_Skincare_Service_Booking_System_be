@@ -1,6 +1,6 @@
 const { User, RefreshToken } = require("../models");
 const bcrypt = require("bcryptjs");
-const { createToken, createRefreshToken, verifyRefreshToken } = require("../Middleware/JWTAction");
+const { createToken, createRefreshToken, verifyRefreshToken } = require("../middleware/JWTAction");
 // import { BlacklistedToken } from "../models";
 
 const registerUser = async (userData) => {

@@ -38,6 +38,7 @@ const OK = (res, message, data, options = {}) => {
     options,
   }).send(res);
 };
+
 const BAD_REQUEST = (res, message, data = null) => {
   return res.status(400).json({
     status: "fail",
@@ -62,10 +63,37 @@ const NOT_FOUND = (res, message, data = null) => {
   });
 };
 
+const INTERNAL_SERVER_ERROR = (res, message = "Internal Server Error", data = null) => {
+  return res.status(500).json({
+    status: "error",
+    message,
+    data,
+  });
+};
+
+const SERVICE_UNAVAILABLE = (res, message = "Service Temporarily Unavailable", data = null) => {
+  return res.status(503).json({
+    status: "error", 
+    message,
+    data,
+  });
+};
+
+const GATEWAY_TIMEOUT = (res, message = "Gateway Timeout", data = null) => {
+  return res.status(504).json({
+    status: "error",
+    message,
+    data,
+  });
+};
+
 module.exports = {
   OK,
   CREATED,
   BAD_REQUEST,
   FORBIDDEN,
   NOT_FOUND,
+  INTERNAL_SERVER_ERROR,
+  SERVICE_UNAVAILABLE,
+  GATEWAY_TIMEOUT,
 };

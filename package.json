@@ -1,23 +1,32 @@
 {
-  "name": "express-base-project",
+  "name": "PetCareWebApp-BE",
   "version": "1.0.0",
-  "description": "Skincare Service Booking System",
-  "main": "src/main.js",
+  "description": "PetCareWebApp-BE",
+  "main": "server.js",
   "scripts": {
-    "start": "node src/main.js"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon --exec ./node_modules/.bin/babel-node src/server.js"
   },
-  "author": "",
+  "author": "La Dat",
+  "license": "ISC",
   "dependencies": {
-    "body-parser": "^1.20.3",
-    "cookie-parser": "^1.4.7",
-    "dotenv": "^16.4.7",
-    "express": "^4.21.2",
-    "mongoose": "^8.10.0",
-    "nodemon": "^3.1.9",
-    "winston": "^3.17.0"
+    "bcrypt": "5.1.1",
+    "bcryptjs": "^3.0.0",
+    "body-parser": "^1.20.2",
+    "cookie-parser": "^1.4.6",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "ejs": "^3.1.10",
+    "express": "^4.19.2",
+    "jsonwebtoken": "^9.0.2",
+    "mongodb": "^6.13.0",
+    "mongoose": "^8.10.1",
+    "nodemon": "^3.1.4"
   },
-  "engines": {
-    "node": ">=18.x"
-  },
-  "license": "MIT"
+  "devDependencies": {
+    "@babel/cli": "^7.24.7",
+    "@babel/core": "^7.24.7",
+    "@babel/node": "^7.24.7",
+    "@babel/preset-env": "^7.24.7"
+  }
 }

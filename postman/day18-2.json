@@ -351,18 +351,38 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": ""
+							"raw": "http://localhost:8555/api/service/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8555",
+							"path": [
+								"api",
+								"service",
+								""
+							]
 						}
 					},
 					"response": []
 				},
 				{
-					"name": "get service",
+					"name": "get service by id",
 					"request": {
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": ""
+							"raw": "http://localhost:8555/api/service/67b4112beb4627661672825d",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8555",
+							"path": [
+								"api",
+								"service",
+								"67b4112beb4627661672825d"
+							]
 						}
 					},
 					"response": []
@@ -372,8 +392,27 @@
 					"request": {
 						"method": "POST",
 						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"serviceName\": \"Combo chăm sóc da toàn diện 2\",\r\n  \"description\": \"Gói combo bao gồm làm trắng da, nặn mụn, trẻ hóa da.\",\r\n  \"price\": 1200000,\r\n  \"duration\": 150,\r\n  \"category\": \"combo\",\r\n  \"subServices\": [],\r\n  \"available\": true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
 						"url": {
-							"raw": ""
+							"raw": "http://localhost:8555/api/service/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8555",
+							"path": [
+								"api",
+								"service",
+								""
+							]
 						}
 					},
 					"response": []
@@ -383,8 +422,27 @@
 					"request": {
 						"method": "PUT",
 						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"serviceName\": \"Combo chăm sóc da toàn diện\",\r\n  \"description\": \"Gói combo bao gồm làm trắng da, nặn mụn, trẻ hóa da.\",\r\n  \"price\": 1200000,\r\n  \"duration\": 160,\r\n  \"category\": \"combo\",\r\n  \"subServices\": [],\r\n  \"available\": true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
 						"url": {
-							"raw": ""
+							"raw": "http://localhost:8555/api/service/67b4112beb4627661672825d",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8555",
+							"path": [
+								"api",
+								"service",
+								"67b4112beb4627661672825d"
+							]
 						}
 					},
 					"response": []
@@ -394,20 +452,42 @@
 					"request": {
 						"method": "PUT",
 						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
 						"url": {
-							"raw": ""
+							"raw": "http://localhost:8555/api/service/delete/67b4112beb4627661672825d",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8555",
+							"path": [
+								"api",
+								"service",
+								"delete",
+								"67b4112beb4627661672825d"
+							]
 						}
 					},
 					"response": []
-				},
+				}
+			]
+		},
+		{
+			"name": "category",
+			"item": [
 				{
-					"name": "change active status",
+					"name": "get all category",
 					"request": {
-						"method": "PATCH",
-						"header": [],
-						"url": {
-							"raw": ""
-						}
+						"method": "GET",
+						"header": []
 					},
 					"response": []
 				}
@@ -459,6 +539,86 @@
 								"header": [],
 								"url": {
 									"raw": ""
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Service",
+					"item": [
+						{
+							"name": "get all services",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8555/api/service/admin/",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8555",
+									"path": [
+										"api",
+										"service",
+										"admin",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get service by id",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8555/api/service/admin/67b4112beb4627661672825d",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8555",
+									"path": [
+										"api",
+										"service",
+										"admin",
+										"67b4112beb4627661672825d"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "change status service",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"status\": true\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8555/api/service/admin/67b4112beb4627661672825d",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8555",
+									"path": [
+										"api",
+										"service",
+										"admin",
+										"67b4112beb4627661672825d"
+									]
 								}
 							},
 							"response": []

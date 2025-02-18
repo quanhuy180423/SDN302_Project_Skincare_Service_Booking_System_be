@@ -114,5 +114,21 @@ const serviceService = {
       throw new Error("Error updating status");
     }
   },
+  getAllSingleServices: async () => {
+    try {
+      const services = await Service.find({ category: "single" });
+      return services;
+    } catch (error) {
+      throw new Error("Error fetching services");
+    }
+  },
+  getAllComboServices: async () => {
+    try {
+      const services = await Service.find({ category: "combo" });
+      return services;
+    } catch (error) {
+      throw new Error("Error fetching services");
+    }
+  },
 };
 export default serviceService;

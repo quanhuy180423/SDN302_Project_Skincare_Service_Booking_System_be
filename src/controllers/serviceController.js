@@ -78,6 +78,28 @@ const serviceController = {
       return BAD_REQUEST(res, error.message);
     }
   }),
+  getAllSingleServices: catchAsync(async (req, res) => {
+    try {
+      const services = await serviceService.getAllSingleServices();
+      if (!services) {
+        return NOT_FOUND(res, "Service not found");
+      }
+      return OK(res, "Get all services successfully", services);
+    } catch (error) {
+      return BAD_REQUEST(res, error.message);
+    }
+  }),
+  getAllComboServices: catchAsync(async (req, res) => {
+    try {
+      const services = await serviceService.getAllComboServices();
+      if (!services) {
+        return NOT_FOUND(res, "Service not found");
+      }
+      return OK(res, "Get all services successfully", services);
+    } catch (error) {
+      return BAD_REQUEST(res, error.message);
+    }
+  }),
 };
 
 export default serviceController;

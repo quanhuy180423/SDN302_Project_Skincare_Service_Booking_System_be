@@ -14,18 +14,31 @@ const userSchema = new mongoose.Schema({
         required: true,
         unique: true,
     },
+    phone: {
+        type: String,
+        required: true,
+    },
     password: {
         type: String,
         required: true,
     },
     role: {
         type: String,
-        enum: ['user', 'admin'],
+        enum: ['user', 'admin', "staff", "therapist"],
         default: 'user'
+    },
+    isDeleted: {
+        type: Boolean,
+        default: false
+    },
+    status: {
+        type: Boolean,
+        default: true
     }
 }, {
     timestamps: true,
 });
-const User = mongoose.model('user', userSchema);
 
-module.exports = User;
+
+const User = mongoose.model('user', userSchema);
+export default User;

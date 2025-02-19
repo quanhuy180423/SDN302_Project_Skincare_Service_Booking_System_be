@@ -1,5 +1,7 @@
 import User from "../models/User";
 import bcrypt from "bcryptjs";
+const _ = require('lodash');
+
 const userService = {
     createUser: async (data) => {
         try {
@@ -52,21 +54,60 @@ const userService = {
         }
     },
 
-    getAllUser: async () => {
-        try {
-            let user = await User.find();
-            return {
-                EC: 200,
-                EM: "Success",
-                DT: user
-            };
-        } catch (error) {
-            return {
-                EC: 500,
-                EM: "Error from server",
-                DT: ""
-            };
-        }
+    getAllUsers: async (query) => {
+        const { sortBy, limit, page, fields, q, ...filter } = query;
+
+        const newFilter = _.pick(filter, [
+            '_id',
+            'email',
+            'role',
+        ]);
+        return await User.paginate(newFilter, {
+            sortBy,
+            limit: limit ?? 20,
+            page: page ?? 1,
+            fields,
+            allowSearchFields: ['email'],
+            q: q ?? '',
+        });
+    },
+
+    getUserByRoleCustomer: async (query) => {
+        const { sortBy, limit, page, q } = query;
+        const filter = { role: 'user', isDeleted: false };
+
+        return await User.paginate(filter, {
+            sortBy: sortBy ?? 'createdAt',
+            limit: limit ? parseInt(limit) : 20,
+            page: page ? parseInt(page) : 1,
+            allowSearchFields: ['email'],
+            q: q ?? '',
+        })
+    },
+
+    getUserByRoleStaff: async (query) => {
+        const { sortBy, limit, page, q } = query;
+        const filter = { role: 'staff', isDeleted: false };
+
+        return await User.paginate(filter, {
+            sortBy: sortBy ?? 'createdAt',
+            limit: limit ? parseInt(limit) : 20,
+            page: page ? parseInt(page) : 1,
+            allowSearchFields: ['email'],
+            q: q ?? '',
+        })
+    },
+    getUserByRoleTherapist: async (query) => {
+        const { sortBy, limit, page, q } = query;
+        const filter = { role: 'therapist', isDeleted: false };
+
+        return await User.paginate(filter, {
+            sortBy: sortBy ?? 'createdAt',
+            limit: limit ? parseInt(limit) : 20,
+            page: page ? parseInt(page) : 1,
+            allowSearchFields: ['email'],
+            q: q ?? '',
+        })
     },
 
     getUserById: async (id) => {

@@ -39,6 +39,7 @@ const userSchema = new mongoose.Schema({
     timestamps: true,
 });
 
+userSchema.plugin(require('./plugin/index'));
 
 const User = mongoose.model('user', userSchema);
 export default User;

@@ -24,9 +24,11 @@ module.exports = models;
 const User = require('./User');
 const RefreshToken = require('./RefreshToken');
 const Product = require('./Product');
+const Service = require('./Service');
 
 module.exports = {
     User,
     RefreshToken,
-    Product
+    Product,
+    Service
 };

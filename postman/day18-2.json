@@ -1,9 +1,9 @@
 {
 	"info": {
-		"_postman_id": "be0c1ae6-3b6b-4a5f-a8df-8d41bf1c009e",
-		"name": "Skincare_Booking_System Copy",
+		"_postman_id": "4de7d4ea-17d9-4155-b748-d4739a9833a1",
+		"name": "Skincare_Booking_System",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "36386379"
+		"_exporter_id": "36351694"
 	},
 	"item": [
 		{
@@ -62,7 +62,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"name\": \"Huy quang\",\r\n    \"email\": \"h@gmail.com\",\r\n    \"password\": \"12345678\"\r\n}",
+							"raw": "{\r\n    \"name\": \"Hoa\",\r\n    \"email\": \"c@gmail.com\",\r\n    \"password\": \"12345678\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -119,10 +119,7 @@
 					"name": "reset password",
 					"request": {
 						"method": "POST",
-						"header": [],
-						"url": {
-							"raw": ""
-						}
+						"header": []
 					},
 					"response": []
 				},
@@ -130,10 +127,7 @@
 					"name": "forgot password",
 					"request": {
 						"method": "POST",
-						"header": [],
-						"url": {
-							"raw": ""
-						}
+						"header": []
 					},
 					"response": []
 				}
@@ -143,33 +137,18 @@
 			"name": "user",
 			"item": [
 				{
+					"name": "change password",
+					"request": {
+						"method": "POST",
+						"header": []
+					},
+					"response": []
+				},
+				{
 					"name": "change infromation",
 					"request": {
 						"method": "PATCH",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n        \"name\": \"Hoang Xa là của Việt Nam\",\r\n        \"email\": \"a@gmail.com\"\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "http://localhost:8555/api/user/update/67b33c6b356a7c2a84d36f4e",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8555",
-							"path": [
-								"api",
-								"user",
-								"update",
-								"67b33c6b356a7c2a84d36f4e"
-							]
-						}
+						"header": []
 					},
 					"response": []
 				},
@@ -177,139 +156,7 @@
 					"name": "get me",
 					"request": {
 						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "http://localhost:8555/api/user/67b440f5fe6aa971647975b0",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8555",
-							"path": [
-								"api",
-								"user",
-								"67b440f5fe6aa971647975b0"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Delete user",
-					"request": {
-						"method": "GET",
 						"header": []
-					},
-					"response": []
-				},
-				{
-					"name": "get all user",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "http://localhost:8555/api/user",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8555",
-							"path": [
-								"api",
-								"user"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "update status user",
-					"request": {
-						"method": "PATCH",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"status\":\"false\"\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "http://localhost:8555/api/user/updateStatus/67b440f5fe6aa971647975b0",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8555",
-							"path": [
-								"api",
-								"user",
-								"updateStatus",
-								"67b440f5fe6aa971647975b0"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "create user (cua admin)",
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"id\":1739866670214,\r\n    \"name\": \"Huy Quang\",\r\n    \"email\": \"alo@gmail.com\",\r\n    \"password\": \"12345678\",\r\n    \"role\":\"staff\",\r\n    \"phone\":\"0123456789\"\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "http://localhost:8555/api/user/createByAdmin",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8555",
-							"path": [
-								"api",
-								"user",
-								"createByAdmin"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "change password",
-					"request": {
-						"method": "PATCH",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{   \r\n        \"id\":\"67b4560a62747dcb0fd4706d\",\r\n        \"oldPassword\":\"12345678\",\r\n        \"newPassword\":\"1234567890\"\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "http://localhost:8555/api/user/changePassword",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8555",
-							"path": [
-								"api",
-								"user",
-								"changePassword"
-							]
-						}
 					},
 					"response": []
 				}
@@ -322,10 +169,7 @@
 					"name": "get all orders",
 					"request": {
 						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": ""
-						}
+						"header": []
 					},
 					"response": []
 				},
@@ -333,10 +177,7 @@
 					"name": "get my orders",
 					"request": {
 						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": ""
-						}
+						"header": []
 					},
 					"response": []
 				}
@@ -351,18 +192,38 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": ""
+							"raw": "http://localhost:8555/api/service/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8555",
+							"path": [
+								"api",
+								"service",
+								""
+							]
 						}
 					},
 					"response": []
 				},
 				{
-					"name": "get service",
+					"name": "get service by id",
 					"request": {
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": ""
+							"raw": "http://localhost:8555/api/service/67b4112beb4627661672825d",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8555",
+							"path": [
+								"api",
+								"service",
+								"67b4112beb4627661672825d"
+							]
 						}
 					},
 					"response": []
@@ -372,8 +233,27 @@
 					"request": {
 						"method": "POST",
 						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"serviceName\": \"Combo chăm sóc da toàn diện 2\",\r\n  \"description\": \"Gói combo bao gồm làm trắng da, nặn mụn, trẻ hóa da.\",\r\n  \"price\": 1200000,\r\n  \"duration\": 150,\r\n  \"category\": \"combo\",\r\n  \"subServices\": [],\r\n  \"available\": true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
 						"url": {
-							"raw": ""
+							"raw": "http://localhost:8555/api/service/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8555",
+							"path": [
+								"api",
+								"service",
+								""
+							]
 						}
 					},
 					"response": []
@@ -383,8 +263,27 @@
 					"request": {
 						"method": "PUT",
 						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"serviceName\": \"Combo chăm sóc da toàn diện\",\r\n  \"description\": \"Gói combo bao gồm làm trắng da, nặn mụn, trẻ hóa da.\",\r\n  \"price\": 1200000,\r\n  \"duration\": 160,\r\n  \"category\": \"combo\",\r\n  \"subServices\": [],\r\n  \"available\": true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
 						"url": {
-							"raw": ""
+							"raw": "http://localhost:8555/api/service/67b4112beb4627661672825d",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8555",
+							"path": [
+								"api",
+								"service",
+								"67b4112beb4627661672825d"
+							]
 						}
 					},
 					"response": []
@@ -394,19 +293,72 @@
 					"request": {
 						"method": "PUT",
 						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
 						"url": {
-							"raw": ""
+							"raw": "http://localhost:8555/api/service/delete/67b4112beb4627661672825d",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8555",
+							"path": [
+								"api",
+								"service",
+								"delete",
+								"67b4112beb4627661672825d"
+							]
 						}
 					},
 					"response": []
 				},
 				{
-					"name": "change active status",
+					"name": "get single service",
 					"request": {
-						"method": "PATCH",
+						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": ""
+							"raw": "http://localhost:8555/api/service/single/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8555",
+							"path": [
+								"api",
+								"service",
+								"single",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get combo service",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8555/api/service/combo/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8555",
+							"path": [
+								"api",
+								"service",
+								"combo",
+								""
+							]
 						}
 					},
 					"response": []
@@ -423,10 +375,7 @@
 							"name": "get all customer",
 							"request": {
 								"method": "GET",
-								"header": [],
-								"url": {
-									"raw": ""
-								}
+								"header": []
 							},
 							"response": []
 						},
@@ -434,10 +383,7 @@
 							"name": "get all staff",
 							"request": {
 								"method": "GET",
-								"header": [],
-								"url": {
-									"raw": ""
-								}
+								"header": []
 							},
 							"response": []
 						},
@@ -445,10 +391,7 @@
 							"name": "get all therapist",
 							"request": {
 								"method": "GET",
-								"header": [],
-								"url": {
-									"raw": ""
-								}
+								"header": []
 							},
 							"response": []
 						},
@@ -456,9 +399,86 @@
 							"name": "change active status",
 							"request": {
 								"method": "PATCH",
+								"header": []
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Service",
+					"item": [
+						{
+							"name": "get all services",
+							"request": {
+								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": ""
+									"raw": "http://localhost:8555/api/service/admin/",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8555",
+									"path": [
+										"api",
+										"service",
+										"admin",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get service by id",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8555/api/service/admin/67b4112beb4627661672825d",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8555",
+									"path": [
+										"api",
+										"service",
+										"admin",
+										"67b4112beb4627661672825d"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "change status service",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"status\": true\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8555/api/service/admin/67b4112beb4627661672825d",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8555",
+									"path": [
+										"api",
+										"service",
+										"admin",
+										"67b4112beb4627661672825d"
+									]
 								}
 							},
 							"response": []
@@ -474,10 +494,7 @@
 					"name": "get all booking",
 					"request": {
 						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": ""
-						}
+						"header": []
 					},
 					"response": []
 				},
@@ -485,10 +502,7 @@
 					"name": "get my booking",
 					"request": {
 						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": ""
-						}
+						"header": []
 					},
 					"response": []
 				},
@@ -496,10 +510,7 @@
 					"name": "create booking",
 					"request": {
 						"method": "POST",
-						"header": [],
-						"url": {
-							"raw": ""
-						}
+						"header": []
 					},
 					"response": []
 				},
@@ -507,10 +518,7 @@
 					"name": "edit booking",
 					"request": {
 						"method": "PATCH",
-						"header": [],
-						"url": {
-							"raw": ""
-						}
+						"header": []
 					},
 					"response": []
 				},
@@ -518,10 +526,7 @@
 					"name": "delete booking",
 					"request": {
 						"method": "PATCH",
-						"header": [],
-						"url": {
-							"raw": ""
-						}
+						"header": []
 					},
 					"response": []
 				}
@@ -534,10 +539,7 @@
 					"name": "get all transaction",
 					"request": {
 						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": ""
-						}
+						"header": []
 					},
 					"response": []
 				},
@@ -545,10 +547,7 @@
 					"name": "get my transaction",
 					"request": {
 						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": ""
-						}
+						"header": []
 					},
 					"response": []
 				}
@@ -561,10 +560,7 @@
 					"name": "get question",
 					"request": {
 						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": ""
-						}
+						"header": []
 					},
 					"response": []
 				},
@@ -572,10 +568,7 @@
 					"name": "answer",
 					"request": {
 						"method": "POST",
-						"header": [],
-						"url": {
-							"raw": ""
-						}
+						"header": []
 					},
 					"response": []
 				}
@@ -588,10 +581,7 @@
 					"name": "get all blog",
 					"request": {
 						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": ""
-						}
+						"header": []
 					},
 					"response": []
 				},
@@ -599,10 +589,7 @@
 					"name": "create blog",
 					"request": {
 						"method": "POST",
-						"header": [],
-						"url": {
-							"raw": ""
-						}
+						"header": []
 					},
 					"response": []
 				},
@@ -610,10 +597,7 @@
 					"name": "edit blog",
 					"request": {
 						"method": "PATCH",
-						"header": [],
-						"url": {
-							"raw": ""
-						}
+						"header": []
 					},
 					"response": []
 				},
@@ -621,10 +605,7 @@
 					"name": "delete blog",
 					"request": {
 						"method": "PATCH",
-						"header": [],
-						"url": {
-							"raw": ""
-						}
+						"header": []
 					},
 					"response": []
 				},
@@ -632,10 +613,7 @@
 					"name": "change active status",
 					"request": {
 						"method": "PATCH",
-						"header": [],
-						"url": {
-							"raw": ""
-						}
+						"header": []
 					},
 					"response": []
 				}
@@ -648,10 +626,7 @@
 					"name": "get all schedule",
 					"request": {
 						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": ""
-						}
+						"header": []
 					},
 					"response": []
 				},
@@ -659,10 +634,7 @@
 					"name": "get my schedule",
 					"request": {
 						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": ""
-						}
+						"header": []
 					},
 					"response": []
 				}
@@ -675,10 +647,7 @@
 					"name": "check-in",
 					"request": {
 						"method": "POST",
-						"header": [],
-						"url": {
-							"raw": ""
-						}
+						"header": []
 					},
 					"response": []
 				},
@@ -686,10 +655,7 @@
 					"name": "check-out",
 					"request": {
 						"method": "POST",
-						"header": [],
-						"url": {
-							"raw": ""
-						}
+						"header": []
 					},
 					"response": []
 				}
@@ -702,10 +668,7 @@
 					"name": "get all reviews",
 					"request": {
 						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": ""
-						}
+						"header": []
 					},
 					"response": []
 				},
@@ -713,10 +676,7 @@
 					"name": "get review by service",
 					"request": {
 						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": ""
-						}
+						"header": []
 					},
 					"response": []
 				},
@@ -724,10 +684,7 @@
 					"name": "create review",
 					"request": {
 						"method": "POST",
-						"header": [],
-						"url": {
-							"raw": ""
-						}
+						"header": []
 					},
 					"response": []
 				},
@@ -735,10 +692,7 @@
 					"name": "update review",
 					"request": {
 						"method": "PATCH",
-						"header": [],
-						"url": {
-							"raw": ""
-						}
+						"header": []
 					},
 					"response": []
 				},
@@ -746,10 +700,7 @@
 					"name": "delete review",
 					"request": {
 						"method": "PATCH",
-						"header": [],
-						"url": {
-							"raw": ""
-						}
+						"header": []
 					},
 					"response": []
 				}

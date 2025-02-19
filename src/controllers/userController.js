@@ -1,4 +1,4 @@
-import { BAD_REQUEST, CREATED, INTERNAL_SERVER_ERROR } from "../config/response.config";
+import { BAD_REQUEST, CREATED, INTERNAL_SERVER_ERROR, OK } from "../config/response.config";
 import userService from "../services/userService";
 import regexPatterns, { phoneVN } from "../utils/toRegex";
 
@@ -36,10 +36,24 @@ const userController = {
     },
 
     getAllUsers: async (req, res) => {
-        const result = await userService.getAllUser();
-        return res.status(result.EC).json(result);
+        const result = await userService.getAllUsers(req.query);
+        return OK(res, 'Get all user success', result)
     },
 
+    getUserByRoleCustomer: async (req, res) => {
+        const result = await userService.getUserByRoleCustomer(req.query);
+        return OK(res, 'Get all Customer success', result)
+    },
+
+    getUserByRoleStaff: async (req, res) => {
+        const result = await userService.getUserByRoleStaff(req.query);
+        return OK(res, 'Get all staff success', result)
+    },
+
+    getUserByRoleTherapist: async (req, res) => {
+        const result = await userService.getUserByRoleTherapist(req.query);
+        return OK(res, 'Get all therapist success', result)
+    },
     getUserById: async (req, res) => {
         const { id } = req.params;
         const result = await userService.getUserById(id);

@@ -42,7 +42,7 @@ const serviceService = {
       const newService = await Service.create(service);
       return newService;
     } catch (error) {
-      throw new Error("Một hoặc nhiều subServices không thuộc loại 'single'.");
+      throw new Error(error.message);
     }
   },
   updateService: async (id, service) => {

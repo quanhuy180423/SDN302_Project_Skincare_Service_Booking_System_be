@@ -5,15 +5,15 @@ import regexPatterns, { phoneVN } from "../utils/toRegex";
 const userController = {
     createUser: async (req, res) => {
         try {
-            const { name, email, password, phone } = req.body;
-            if (!email || !password || !name || !phone) {
+            const { name, email, password, phone, role } = req.body;
+            if (!email || !password || !name || !phone || !role) {
                 return BAD_REQUEST(res, "Missing required fields");
             } else if (!regexPatterns.email(email)) {
                 return BAD_REQUEST(res, "Invalid email format");
             } else if (password.length < 6) {
                 return BAD_REQUEST(res, "Password must be at least 6 characters long");
             }
-            const response = await userService.createUser({ name, email, password, phone });
+            const response = await userService.createUser({ name, email, password, phone, role });
             if (!response.success) {
                 // Xử lý các trường hợp lỗi khác nhau
                 switch (response.statusCode) {

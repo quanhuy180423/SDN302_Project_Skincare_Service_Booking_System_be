@@ -3,6 +3,7 @@ import bcrypt from "bcryptjs";
 const userService = {
     createUser: async (data) => {
         try {
+            console.log(data)
             // Check if user already exists
             const existingUser = await User.findOne({ email: data.email });
             if (existingUser) {
@@ -21,6 +22,7 @@ const userService = {
             // Create new user
             const newUser = await User.create({
                 ...data,
+                role: data.role,
                 password: hashedPassword,
                 id: Date.now(), // Simple way to generate unique id
             });

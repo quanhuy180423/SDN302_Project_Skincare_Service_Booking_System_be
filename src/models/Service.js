@@ -41,6 +41,13 @@ const serviceSchema = new mongoose.Schema(
       required: true,
       trim: true,
     },
+    rating: {
+      type: Number,
+      default: 0,
+      min: 0,
+      max: 5,
+      set: (val) => Math.round(val * 10) / 10,
+    },
     slug: {
       type: String,
       trim: true,

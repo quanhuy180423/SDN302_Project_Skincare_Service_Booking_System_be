@@ -26,6 +26,7 @@ const reviewSchema = new Schema(
     },
     isGoodReview: {
       type: Boolean,
+      required: true,
       default: false,
     },
   },
@@ -37,7 +38,7 @@ const reviewSchema = new Schema(
 reviewSchema.statics.calcAvgRating = async function (serviceID) {
   const stats = await this.aggregate([
     {
-      $match: { course: serviceID },
+      $match: { service: serviceID },
     },
     {
       $group: {
@@ -48,7 +49,7 @@ reviewSchema.statics.calcAvgRating = async function (serviceID) {
   ]);
   if (stats?.length > 0) {
     await Service.findByIdAndUpdate(serviceID, {
-      ratingsAverage: stats[0].avgRating,
+      rating: stats[0].avgRating,
     });
   }
 };
@@ -57,7 +58,7 @@ reviewSchema.post("save", function () {
   this.constructor.calcAvgRating(this.service);
 });
 
-reviewSchema.plugin(require("./plugins/paginate.plugin"));
+reviewSchema.plugin(require("./plugin/index"));
 
 const Review = model("Review", reviewSchema);
 module.exports = Review;

@@ -1,0 +1,2529 @@
+{
+	"info": {
+		"_postman_id": "667420d1-f580-41c2-8673-a891d346b34d",
+		"name": "Skincare_Booking_System Copy",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "36351694"
+	},
+	"item": [
+		{
+			"name": "auth",
+			"item": [
+				{
+					"name": "login",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const res = pm.response.json()\r",
+									"\r",
+									"\r",
+									"pm.globals.set(\"userToken3\", res.data.tokens.accessToken)\r",
+									"pm.environment.set(\"userToken3\", res.data.tokens.accessToken)"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"ablo@gmail.com\",\r\n    \"password\": \"12345678\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8555/api/auth/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8555",
+							"path": [
+								"api",
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Huy quang\",\r\n    \"email\": \"h@gmail.com\",\r\n    \"password\": \"12345678\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8555/api/auth/register",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8555",
+							"path": [
+								"api",
+								"auth",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "logout",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"refreshToken\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTczOTc5OTY1OTUxOSwiZW1haWwiOiJhQGdtYWlsLmNvbSIsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNzM5ODAwMzE1LCJleHAiOjE3NDA0MDUxMTV9.OX4SbrbdhFCfLMWgeemhPkflC33OjgsEhwKPNKv_6-A\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8555/api/auth/logout",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8555",
+							"path": [
+								"api",
+								"auth",
+								"logout"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "reset password",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": ""
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "forgot password",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": ""
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "user",
+			"item": [
+				{
+					"name": "change infromation",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n        \"name\": \"Hoang Xa là của Việt Nam\",\r\n        \"email\": \"a@gmail.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8555/api/user/update/67b33c6b356a7c2a84d36f4e",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8555",
+							"path": [
+								"api",
+								"user",
+								"update",
+								"67b33c6b356a7c2a84d36f4e"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get me",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8555/api/user/67b440f5fe6aa971647975b0",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8555",
+							"path": [
+								"api",
+								"user",
+								"67b440f5fe6aa971647975b0"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete user",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": ""
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get all user",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8555/api/user",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8555",
+							"path": [
+								"api",
+								"user"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update status user",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"status\":\"false\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8555/api/user/updateStatus/67b440f5fe6aa971647975b0",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8555",
+							"path": [
+								"api",
+								"user",
+								"updateStatus",
+								"67b440f5fe6aa971647975b0"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create user (cua admin)",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Huy Quang\",\r\n    \"email\": \"ablo@gmail.com\",\r\n    \"password\": \"12345678\",\r\n    \"role\":\"staff\",\r\n    \"phone\":\"0123456789\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8555/api/user/createByAdmin",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8555",
+							"path": [
+								"api",
+								"user",
+								"createByAdmin"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "change password",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{   \r\n        \"id\":\"67b4560a62747dcb0fd4706d\",\r\n        \"oldPassword\":\"12345678\",\r\n        \"newPassword\":\"1234567890\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8555/api/user/changePassword",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8555",
+							"path": [
+								"api",
+								"user",
+								"changePassword"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get user follow role therapist",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8555/api/user/getTherapist",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8555",
+							"path": [
+								"api",
+								"user",
+								"getTherapist"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "demo",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8555/api/user/getTherapist",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8555",
+									"path": [
+										"api",
+										"user",
+										"getTherapist"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "http://localhost:5173"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "797"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"31d-E+5s+IxNykyy4UaMPmA1CQEi7zA\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 19 Feb 2025 06:05:58 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Get all therapist success\",\n    \"status\": 200,\n    \"data\": {\n        \"page\": 1,\n        \"limit\": 20,\n        \"totalPages\": 1,\n        \"totalResults\": 2,\n        \"results\": [\n            {\n                \"_id\": \"67b55fb0f811ff87ffb9a655\",\n                \"id\": 1739939760889,\n                \"name\": \"Huy Quang\",\n                \"email\": \"alo6@gmail.com\",\n                \"phone\": \"0123456789\",\n                \"password\": \"$2b$10$LhWMxZ.8ytpte7RqHcJTreRtNqqwq8wWS0En7id.CNh9sq8zW8NTu\",\n                \"role\": \"therapist\",\n                \"isDeleted\": false,\n                \"status\": true,\n                \"createdAt\": \"2025-02-19T04:36:00.890Z\",\n                \"updatedAt\": \"2025-02-19T04:36:00.890Z\",\n                \"__v\": 0\n            },\n            {\n                \"_id\": \"67b55ff0f811ff87ffb9a658\",\n                \"id\": 1739939824821,\n                \"name\": \"Huy Quang\",\n                \"email\": \"alo7@gmail.com\",\n                \"phone\": \"0123456789\",\n                \"password\": \"$2b$10$tI182X6kBMQJD8urAzG3mO5yf2q7hmMAoashyJ6CUj6sVARZdTFvC\",\n                \"role\": \"therapist\",\n                \"isDeleted\": false,\n                \"status\": true,\n                \"createdAt\": \"2025-02-19T04:37:04.822Z\",\n                \"updatedAt\": \"2025-02-19T04:37:04.822Z\",\n                \"__v\": 0\n            }\n        ]\n    },\n    \"option\": {}\n}"
+						}
+					]
+				},
+				{
+					"name": "get user customer",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8555/api/user/getCustomer",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8555",
+							"path": [
+								"api",
+								"user",
+								"getCustomer"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "demo",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8555/api/user/getCustomer",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8555",
+									"path": [
+										"api",
+										"user",
+										"getCustomer"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "http://localhost:5173"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "3117"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"c2d-e1SDwyR/lBghAhtYVeAt2PFA04c\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 19 Feb 2025 06:04:10 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Get all Customer success\",\n    \"status\": 200,\n    \"data\": {\n        \"page\": 1,\n        \"limit\": 20,\n        \"totalPages\": 1,\n        \"totalResults\": 9,\n        \"results\": [\n            {\n                \"_id\": \"67b4560a62747dcb0fd4706d\",\n                \"id\": 1739871754743,\n                \"name\": \"Huy Quang\",\n                \"email\": \"alo@gmail.com\",\n                \"phone\": \"0123456789\",\n                \"password\": \"$2b$10$IOptQq.Ong7PqpmoG2r/QOK35N67/GXpXiH//P2vF98WBTf1UxfUy\",\n                \"role\": \"user\",\n                \"isDeleted\": false,\n                \"status\": true,\n                \"createdAt\": \"2025-02-18T09:42:34.749Z\",\n                \"updatedAt\": \"2025-02-18T09:43:28.672Z\",\n                \"__v\": 0\n            },\n            {\n                \"_id\": \"67b5504737a8300827621fd0\",\n                \"id\": 1739935815524,\n                \"name\": \"Huy đẹp gái\",\n                \"email\": \"huy@gmail.com\",\n                \"phone\": \"0123456789\",\n                \"password\": \"$2b$10$mj6IUQaP8btpKOPQ1gZ75ehySsePjqZwaM8JeTvfUCXxlP2VbAJiW\",\n                \"role\": \"user\",\n                \"isDeleted\": false,\n                \"status\": true,\n                \"createdAt\": \"2025-02-19T03:30:15.543Z\",\n                \"updatedAt\": \"2025-02-19T03:30:15.543Z\",\n                \"__v\": 0\n            },\n            {\n                \"_id\": \"67b5599537a8300827621fe3\",\n                \"id\": 1739938197366,\n                \"name\": \"Huy đẹp trai\",\n                \"email\": \"huybao@gmail.com\",\n                \"phone\": \"0123456789\",\n                \"password\": \"$2b$10$T4ZUgEAWIVIrml56N3h/Hu0ihxbBhnnVFajbZJ/O2TZVAWVa/mpKG\",\n                \"role\": \"user\",\n                \"isDeleted\": false,\n                \"status\": true,\n                \"createdAt\": \"2025-02-19T04:09:57.531Z\",\n                \"updatedAt\": \"2025-02-19T04:09:57.531Z\",\n                \"__v\": 0\n            },\n            {\n                \"_id\": \"67b55a0837a8300827621fef\",\n                \"id\": 1739938312871,\n                \"name\": \"Huy đẹp trai\",\n                \"email\": \"huybao123@gmail.com\",\n                \"phone\": \"0123456789\",\n                \"password\": \"$2b$10$yCJSghcbTPAkOSv2JLRh4.fj8CzxAHBGWriNqb.CTTtNwq3jxhsQG\",\n                \"role\": \"user\",\n                \"isDeleted\": false,\n                \"status\": true,\n                \"createdAt\": \"2025-02-19T04:11:52.935Z\",\n                \"updatedAt\": \"2025-02-19T04:11:52.935Z\",\n                \"__v\": 0\n            },\n            {\n                \"_id\": \"67b55a3d37a8300827621ff4\",\n                \"id\": 1739938365995,\n                \"name\": \"Huy đẹp trai\",\n                \"email\": \"huybao1235@gmail.com\",\n                \"phone\": \"0123456789\",\n                \"password\": \"$2b$10$VyYNjfeaX7dTKqPuGUECk.al0XjeYzr9V3QBQtJieN5b7Wv2CsEt6\",\n                \"role\": \"user\",\n                \"isDeleted\": false,\n                \"status\": true,\n                \"createdAt\": \"2025-02-19T04:12:46.001Z\",\n                \"updatedAt\": \"2025-02-19T04:12:46.001Z\",\n                \"__v\": 0\n            },\n            {\n                \"_id\": \"67b55b3837a8300827621ff9\",\n                \"id\": 1739938616285,\n                \"name\": \"Huy đẹp trai\",\n                \"email\": \"huybao1111235@gmail.com\",\n                \"phone\": \"0123456789\",\n                \"password\": \"$2b$10$nDYvDD/ndrhO83PyjtPt9Og9PxEdN/CdTHDoQ5COmtEO8r6FuAJ6m\",\n                \"role\": \"user\",\n                \"isDeleted\": false,\n                \"status\": true,\n                \"createdAt\": \"2025-02-19T04:16:56.373Z\",\n                \"updatedAt\": \"2025-02-19T04:16:56.373Z\",\n                \"__v\": 0\n            },\n            {\n                \"_id\": \"67b55bc97681aa5e24c6f205\",\n                \"id\": 1739938761698,\n                \"name\": \"Huy Quang\",\n                \"email\": \"alo1@gmail.com\",\n                \"phone\": \"0123456789\",\n                \"password\": \"$2b$10$AwNrqsraD2lgGkMqArxO3eMrF9IS70UC5DNRnUpZs.iZ4jpgZiyte\",\n                \"role\": \"user\",\n                \"isDeleted\": false,\n                \"status\": true,\n                \"createdAt\": \"2025-02-19T04:19:21.707Z\",\n                \"updatedAt\": \"2025-02-19T04:19:21.707Z\",\n                \"__v\": 0\n            },\n            {\n                \"_id\": \"67b55bf785e7a2c9cf93f132\",\n                \"id\": 1739938807528,\n                \"name\": \"Huy Quang\",\n                \"email\": \"alo2@gmail.com\",\n                \"phone\": \"0123456789\",\n                \"password\": \"$2b$10$Z.r8zDGj31QLG15uECpyeuU.DvDrTfHeW3U0giTjhLTXwiM6LE1aW\",\n                \"role\": \"user\",\n                \"isDeleted\": false,\n                \"status\": true,\n                \"createdAt\": \"2025-02-19T04:20:07.536Z\",\n                \"updatedAt\": \"2025-02-19T04:20:07.536Z\",\n                \"__v\": 0\n            },\n            {\n                \"_id\": \"67b561fc4c882f2f525abecd\",\n                \"id\": 1739940348550,\n                \"name\": \"Huy Quang\",\n                \"email\": \"phuc123eee@gmail.com\",\n                \"phone\": \"0123456789\",\n                \"password\": \"$2b$10$3A3ztvHRMCGqeGo87ju81.657pAeLgXz/D93n81vUfN2Ve7nysOw2\",\n                \"role\": \"user\",\n                \"isDeleted\": false,\n                \"status\": true,\n                \"createdAt\": \"2025-02-19T04:45:48.552Z\",\n                \"updatedAt\": \"2025-02-19T04:45:48.552Z\",\n                \"__v\": 0\n            }\n        ]\n    },\n    \"option\": {}\n}"
+						}
+					]
+				},
+				{
+					"name": "get staff",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8555/api/user/getStaff",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8555",
+							"path": [
+								"api",
+								"user",
+								"getStaff"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "demo",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8555/api/user/getStaff",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8555",
+									"path": [
+										"api",
+										"user",
+										"getStaff"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "http://localhost:5173"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "1719"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"6b7-U5oXJEP3SWY7zwYdyiaIfjoMyNk\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 19 Feb 2025 06:06:13 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Get all staff success\",\n    \"status\": 200,\n    \"data\": {\n        \"page\": 1,\n        \"limit\": 20,\n        \"totalPages\": 1,\n        \"totalResults\": 5,\n        \"results\": [\n            {\n                \"_id\": \"67b44b312b8ce515b2505538\",\n                \"id\": 1739866670214,\n                \"name\": \"Huy Quang\",\n                \"email\": \"Q@gmail.com\",\n                \"phone\": \"0123456789\",\n                \"password\": \"12345678\",\n                \"role\": \"staff\",\n                \"isDeleted\": false,\n                \"status\": true,\n                \"createdAt\": \"2025-02-18T08:56:17.554Z\",\n                \"updatedAt\": \"2025-02-18T08:56:17.554Z\",\n                \"__v\": 0\n            },\n            {\n                \"_id\": \"67b55c525893ceed0e6cb914\",\n                \"id\": 1739938898031,\n                \"name\": \"Huy Quang\",\n                \"email\": \"alo3@gmail.com\",\n                \"phone\": \"0123456789\",\n                \"password\": \"$2b$10$uc/ek/0REiZ3tNmHA8n7huQajii5k/EK28x0zFPUkCW0Ff1KHx92e\",\n                \"role\": \"staff\",\n                \"isDeleted\": false,\n                \"status\": true,\n                \"createdAt\": \"2025-02-19T04:21:38.039Z\",\n                \"updatedAt\": \"2025-02-19T04:21:38.039Z\",\n                \"__v\": 0\n            },\n            {\n                \"_id\": \"67b55d88344da0822b6664e3\",\n                \"id\": 1739939208854,\n                \"name\": \"Huy đẹp trai\",\n                \"email\": \"huymongto@gmail.com\",\n                \"phone\": \"0123456789\",\n                \"password\": \"$2b$10$/DoH76KQOALSym2H4Y/pq.kvxKqR4aDOqZ1LdBDFGdRKVdMzrsIVS\",\n                \"role\": \"staff\",\n                \"isDeleted\": false,\n                \"status\": true,\n                \"createdAt\": \"2025-02-19T04:26:48.862Z\",\n                \"updatedAt\": \"2025-02-19T04:26:48.862Z\",\n                \"__v\": 0\n            },\n            {\n                \"_id\": \"67b55f94f811ff87ffb9a64d\",\n                \"id\": 1739939732596,\n                \"name\": \"Huy Quang\",\n                \"email\": \"alo4@gmail.com\",\n                \"phone\": \"0123456789\",\n                \"password\": \"$2b$10$vaqiu4CGBj7sGrhTKxYjQOP3/2MtnJzzoAs1GYyevUZSnVJOVixDC\",\n                \"role\": \"staff\",\n                \"isDeleted\": false,\n                \"status\": true,\n                \"createdAt\": \"2025-02-19T04:35:32.604Z\",\n                \"updatedAt\": \"2025-02-19T04:35:32.604Z\",\n                \"__v\": 0\n            },\n            {\n                \"_id\": \"67b55f9ff811ff87ffb9a652\",\n                \"id\": 1739939743542,\n                \"name\": \"Huy Quang\",\n                \"email\": \"alo5@gmail.com\",\n                \"phone\": \"0123456789\",\n                \"password\": \"$2b$10$spS90Efkt9G9thoHEFgnHu/3iUiudAilPaunHg1Tdf573vpRaL1xK\",\n                \"role\": \"staff\",\n                \"isDeleted\": false,\n                \"status\": true,\n                \"createdAt\": \"2025-02-19T04:35:43.543Z\",\n                \"updatedAt\": \"2025-02-19T04:35:43.543Z\",\n                \"__v\": 0\n            }\n        ]\n    },\n    \"option\": {}\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "order",
+			"item": [
+				{
+					"name": "get all orders",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": ""
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get my orders",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": ""
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "service",
+			"item": [
+				{
+					"name": "get all service",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8555/api/service/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8555",
+							"path": [
+								"api",
+								"service",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "get all service",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8555/api/service/",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8555",
+									"path": [
+										"api",
+										"service",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "http://localhost:5173"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "1761"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"6e1-fLbPwWGhIXC0Q/DUe3SW81MwcrI\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 19 Feb 2025 06:10:54 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Get all services successfully\",\n    \"status\": 200,\n    \"data\": [\n        {\n            \"_id\": \"67b4112beb4627661672825d\",\n            \"serviceName\": \"Combo chăm sóc da toàn diện\",\n            \"description\": \"Gói combo bao gồm làm trắng da, nặn mụn, trẻ hóa da.\",\n            \"price\": 1200000,\n            \"duration\": 150,\n            \"category\": \"combo\",\n            \"subServices\": [],\n            \"available\": true,\n            \"createdAt\": \"2025-02-18T04:48:43.963Z\",\n            \"updatedAt\": \"2025-02-18T09:19:00.967Z\",\n            \"slug\": \"combo-cham-soc-da-toan-dien\",\n            \"__v\": 0\n        },\n        {\n            \"_id\": \"67b4169fe0de00283d5832ba\",\n            \"serviceName\": \"Combo chăm sóc da toàn diện 2\",\n            \"description\": \"Gói combo bao gồm làm trắng da, nặn mụn, trẻ hóa da.\",\n            \"price\": 1200000,\n            \"duration\": 150,\n            \"category\": \"combo\",\n            \"subServices\": [],\n            \"available\": true,\n            \"createdAt\": \"2025-02-18T05:11:59.634Z\",\n            \"updatedAt\": \"2025-02-18T05:11:59.634Z\",\n            \"slug\": \"combo-cham-soc-da-toan-dien-2\",\n            \"__v\": 0\n        },\n        {\n            \"_id\": \"67b44868d2f792dc46fca394\",\n            \"serviceName\": \"Chăm sóc da dầu\",\n            \"description\": \"Nặn mụn và làm sạch mặt.\",\n            \"price\": 600000,\n            \"duration\": 150,\n            \"category\": \"single\",\n            \"subServices\": [],\n            \"image\": \"https://th.bing.com/th/id/OIP.MG0iCXGI6cnWbkxfwLpO1wHaE8?w=280&h=187&c=7&r=0&o=5&dpr=1.3&pid=1.7\",\n            \"available\": true,\n            \"createdAt\": \"2025-02-18T08:44:24.748Z\",\n            \"updatedAt\": \"2025-02-18T08:44:24.748Z\",\n            \"slug\": \"cham-soc-da-dau\",\n            \"__v\": 0\n        },\n        {\n            \"_id\": \"67b448b5d2f792dc46fca397\",\n            \"serviceName\": \"Combo chăm sóc da toàn diện 5\",\n            \"description\": \"Gói combo bao gồm làm trắng da, nặn mụn, trẻ hóa da.\",\n            \"price\": 1200000,\n            \"duration\": 150,\n            \"category\": \"combo\",\n            \"subServices\": [\n                \"67b44868d2f792dc46fca394\"\n            ],\n            \"image\": \"https://th.bing.com/th/id/OIP.MG0iCXGI6cnWbkxfwLpO1wHaE8?w=280&h=187&c=7&r=0&o=5&dpr=1.3&pid=1.7\",\n            \"available\": true,\n            \"createdAt\": \"2025-02-18T08:45:41.388Z\",\n            \"updatedAt\": \"2025-02-18T08:45:41.388Z\",\n            \"slug\": \"combo-cham-soc-da-toan-dien-5\",\n            \"__v\": 0\n        }\n    ],\n    \"option\": {}\n}"
+						}
+					]
+				},
+				{
+					"name": "get service",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8555/api/service/67b4112beb4627661672825d",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8555",
+							"path": [
+								"api",
+								"service",
+								"67b4112beb4627661672825d"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "get service",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8555/api/service/67b4112beb4627661672825d",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8555",
+									"path": [
+										"api",
+										"service",
+										"67b4112beb4627661672825d"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "http://localhost:5173"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "443"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"1bb-A9YhaJYT8UyK64jRvMQ+qEntiuo\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 19 Feb 2025 06:11:35 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Get service successfully\",\n    \"status\": 200,\n    \"data\": {\n        \"_id\": \"67b4112beb4627661672825d\",\n        \"serviceName\": \"Combo chăm sóc da toàn diện\",\n        \"description\": \"Gói combo bao gồm làm trắng da, nặn mụn, trẻ hóa da.\",\n        \"price\": 1200000,\n        \"duration\": 150,\n        \"category\": \"combo\",\n        \"subServices\": [],\n        \"available\": true,\n        \"createdAt\": \"2025-02-18T04:48:43.963Z\",\n        \"updatedAt\": \"2025-02-18T09:19:00.967Z\",\n        \"slug\": \"combo-cham-soc-da-toan-dien\",\n        \"__v\": 0\n    },\n    \"option\": {}\n}"
+						}
+					]
+				},
+				{
+					"name": "create service",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"serviceName\": \"Combo chăm sóc da toàn diện 10\",\r\n  \"description\": \"Gói combo bao gồm làm trắng da, nặn mụn, trẻ hóa da.\",\r\n  \"price\": 1200000,\r\n  \"duration\": 150,\r\n  \"category\": \"single\",\r\n  \"image\":\"https://scontent.fsgn2-8.fna.fbcdn.net/v/t39.30808-6/480702216_122142065180389020_8235936593774782217_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=aa7b47&_nc_eui2=AeEvRc4G_ursmIvAlrhOTkZYa5eOY3QmPx1rl45jdCY_HYC8pRilcFRKWnHdDjn50wxwwkb-oWWwTP0pbMb_X2IE&_nc_ohc=qjHRfi_s56UQ7kNvgGraB66&_nc_oc=AdgwGU2X4rcprhIwuF6Kj6IAY4kpX8KapQ6LBD5bi7chu6n8l-2MQFyozOHHWduVgZXCAGZNsnStfm6-pXB3C5yI&_nc_zt=23&_nc_ht=scontent.fsgn2-8.fna&_nc_gid=A7Ih_2zQw-lPZRe7L-kr8Zj&oh=00_AYD_7PezVWpn6zdZjq4peVcGQV3LuWxltHThvuIWMuYo5A&oe=67BB4D5E\",\r\n  \"subServices\": [],\r\n  \"available\": true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8555/api/service/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8555",
+							"path": [
+								"api",
+								"service",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "create service",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"serviceName\": \"Combo chăm sóc da toàn diện 10\",\r\n  \"description\": \"Gói combo bao gồm làm trắng da, nặn mụn, trẻ hóa da.\",\r\n  \"price\": 1200000,\r\n  \"duration\": 150,\r\n  \"category\": \"single\",\r\n  \"image\":\"https://scontent.fsgn2-8.fna.fbcdn.net/v/t39.30808-6/480702216_122142065180389020_8235936593774782217_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=aa7b47&_nc_eui2=AeEvRc4G_ursmIvAlrhOTkZYa5eOY3QmPx1rl45jdCY_HYC8pRilcFRKWnHdDjn50wxwwkb-oWWwTP0pbMb_X2IE&_nc_ohc=qjHRfi_s56UQ7kNvgGraB66&_nc_oc=AdgwGU2X4rcprhIwuF6Kj6IAY4kpX8KapQ6LBD5bi7chu6n8l-2MQFyozOHHWduVgZXCAGZNsnStfm6-pXB3C5yI&_nc_zt=23&_nc_ht=scontent.fsgn2-8.fna&_nc_gid=A7Ih_2zQw-lPZRe7L-kr8Zj&oh=00_AYD_7PezVWpn6zdZjq4peVcGQV3LuWxltHThvuIWMuYo5A&oe=67BB4D5E\",\r\n  \"subServices\": [],\r\n  \"available\": true\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8555/api/service/",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8555",
+									"path": [
+										"api",
+										"service",
+										""
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "http://localhost:5173"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "967"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"3c7-PjAlgcOF/GXwW+uD4PdSlwLVkJc\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 19 Feb 2025 06:16:55 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Create service successfully\",\n    \"status\": 201,\n    \"data\": {\n        \"serviceName\": \"Combo chăm sóc da toàn diện 10\",\n        \"description\": \"Gói combo bao gồm làm trắng da, nặn mụn, trẻ hóa da.\",\n        \"price\": 1200000,\n        \"duration\": 150,\n        \"category\": \"single\",\n        \"subServices\": [],\n        \"image\": \"https://scontent.fsgn2-8.fna.fbcdn.net/v/t39.30808-6/480702216_122142065180389020_8235936593774782217_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=aa7b47&_nc_eui2=AeEvRc4G_ursmIvAlrhOTkZYa5eOY3QmPx1rl45jdCY_HYC8pRilcFRKWnHdDjn50wxwwkb-oWWwTP0pbMb_X2IE&_nc_ohc=qjHRfi_s56UQ7kNvgGraB66&_nc_oc=AdgwGU2X4rcprhIwuF6Kj6IAY4kpX8KapQ6LBD5bi7chu6n8l-2MQFyozOHHWduVgZXCAGZNsnStfm6-pXB3C5yI&_nc_zt=23&_nc_ht=scontent.fsgn2-8.fna&_nc_gid=A7Ih_2zQw-lPZRe7L-kr8Zj&oh=00_AYD_7PezVWpn6zdZjq4peVcGQV3LuWxltHThvuIWMuYo5A&oe=67BB4D5E\",\n        \"available\": true,\n        \"_id\": \"67b577571552a2123c248e29\",\n        \"createdAt\": \"2025-02-19T06:16:55.881Z\",\n        \"updatedAt\": \"2025-02-19T06:16:55.881Z\",\n        \"slug\": \"combo-cham-soc-da-toan-dien-10\",\n        \"__v\": 0\n    },\n    \"option\": {}\n}"
+						}
+					]
+				},
+				{
+					"name": "update service",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"serviceName\": \"Combo chăm sóc da toàn diện 10 (sửa)\",\r\n  \"description\": \"Gói combo bao gồm làm trắng da, nặn mụn, trẻ hóa da.\",\r\n  \"price\": 1200000,\r\n  \"duration\": 150,\r\n  \"category\": \"single\",\r\n  \"image\":\"https://scontent.fsgn2-8.fna.fbcdn.net/v/t39.30808-6/480702216_122142065180389020_8235936593774782217_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=aa7b47&_nc_eui2=AeEvRc4G_ursmIvAlrhOTkZYa5eOY3QmPx1rl45jdCY_HYC8pRilcFRKWnHdDjn50wxwwkb-oWWwTP0pbMb_X2IE&_nc_ohc=qjHRfi_s56UQ7kNvgGraB66&_nc_oc=AdgwGU2X4rcprhIwuF6Kj6IAY4kpX8KapQ6LBD5bi7chu6n8l-2MQFyozOHHWduVgZXCAGZNsnStfm6-pXB3C5yI&_nc_zt=23&_nc_ht=scontent.fsgn2-8.fna&_nc_gid=A7Ih_2zQw-lPZRe7L-kr8Zj&oh=00_AYD_7PezVWpn6zdZjq4peVcGQV3LuWxltHThvuIWMuYo5A&oe=67BB4D5E\",\r\n  \"subServices\": [],\r\n  \"available\": true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8555/api/service/67b577571552a2123c248e29",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8555",
+							"path": [
+								"api",
+								"service",
+								"67b577571552a2123c248e29"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "update service",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"serviceName\": \"Combo chăm sóc da toàn diện 10 (sửa)\",\r\n  \"description\": \"Gói combo bao gồm làm trắng da, nặn mụn, trẻ hóa da.\",\r\n  \"price\": 1200000,\r\n  \"duration\": 150,\r\n  \"category\": \"single\",\r\n  \"image\":\"https://scontent.fsgn2-8.fna.fbcdn.net/v/t39.30808-6/480702216_122142065180389020_8235936593774782217_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=aa7b47&_nc_eui2=AeEvRc4G_ursmIvAlrhOTkZYa5eOY3QmPx1rl45jdCY_HYC8pRilcFRKWnHdDjn50wxwwkb-oWWwTP0pbMb_X2IE&_nc_ohc=qjHRfi_s56UQ7kNvgGraB66&_nc_oc=AdgwGU2X4rcprhIwuF6Kj6IAY4kpX8KapQ6LBD5bi7chu6n8l-2MQFyozOHHWduVgZXCAGZNsnStfm6-pXB3C5yI&_nc_zt=23&_nc_ht=scontent.fsgn2-8.fna&_nc_gid=A7Ih_2zQw-lPZRe7L-kr8Zj&oh=00_AYD_7PezVWpn6zdZjq4peVcGQV3LuWxltHThvuIWMuYo5A&oe=67BB4D5E\",\r\n  \"subServices\": [],\r\n  \"available\": true\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8555/api/service/67b577571552a2123c248e29",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8555",
+									"path": [
+										"api",
+										"service",
+										"67b577571552a2123c248e29"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "http://localhost:5173"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "975"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"3cf-ZSHTeIZNPLNUBtqo1oUbcn4FOSs\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 19 Feb 2025 06:17:47 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Update service successfully\",\n    \"status\": 200,\n    \"data\": {\n        \"_id\": \"67b577571552a2123c248e29\",\n        \"serviceName\": \"Combo chăm sóc da toàn diện 10 (sửa)\",\n        \"description\": \"Gói combo bao gồm làm trắng da, nặn mụn, trẻ hóa da.\",\n        \"price\": 1200000,\n        \"duration\": 150,\n        \"category\": \"single\",\n        \"subServices\": [],\n        \"image\": \"https://scontent.fsgn2-8.fna.fbcdn.net/v/t39.30808-6/480702216_122142065180389020_8235936593774782217_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=aa7b47&_nc_eui2=AeEvRc4G_ursmIvAlrhOTkZYa5eOY3QmPx1rl45jdCY_HYC8pRilcFRKWnHdDjn50wxwwkb-oWWwTP0pbMb_X2IE&_nc_ohc=qjHRfi_s56UQ7kNvgGraB66&_nc_oc=AdgwGU2X4rcprhIwuF6Kj6IAY4kpX8KapQ6LBD5bi7chu6n8l-2MQFyozOHHWduVgZXCAGZNsnStfm6-pXB3C5yI&_nc_zt=23&_nc_ht=scontent.fsgn2-8.fna&_nc_gid=A7Ih_2zQw-lPZRe7L-kr8Zj&oh=00_AYD_7PezVWpn6zdZjq4peVcGQV3LuWxltHThvuIWMuYo5A&oe=67BB4D5E\",\n        \"available\": true,\n        \"createdAt\": \"2025-02-19T06:16:55.881Z\",\n        \"updatedAt\": \"2025-02-19T06:17:47.194Z\",\n        \"slug\": \"combo-cham-soc-da-toan-dien-10\",\n        \"__v\": 0\n    },\n    \"option\": {}\n}"
+						}
+					]
+				},
+				{
+					"name": "delete service",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": ""
+						}
+					},
+					"response": [
+						{
+							"name": "delete service",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8555/api/service/delete/67b577571552a2123c248e29",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8555",
+									"path": [
+										"api",
+										"service",
+										"delete",
+										"67b577571552a2123c248e29"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "http://localhost:5173"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "976"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"3d0-IRQ0K3KV5BaZ8LiNxbFOD3BkiZA\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 19 Feb 2025 06:20:37 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Delete service successfully\",\n    \"status\": 200,\n    \"data\": {\n        \"_id\": \"67b577571552a2123c248e29\",\n        \"serviceName\": \"Combo chăm sóc da toàn diện 10 (sửa)\",\n        \"description\": \"Gói combo bao gồm làm trắng da, nặn mụn, trẻ hóa da.\",\n        \"price\": 1200000,\n        \"duration\": 150,\n        \"category\": \"single\",\n        \"subServices\": [],\n        \"image\": \"https://scontent.fsgn2-8.fna.fbcdn.net/v/t39.30808-6/480702216_122142065180389020_8235936593774782217_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=aa7b47&_nc_eui2=AeEvRc4G_ursmIvAlrhOTkZYa5eOY3QmPx1rl45jdCY_HYC8pRilcFRKWnHdDjn50wxwwkb-oWWwTP0pbMb_X2IE&_nc_ohc=qjHRfi_s56UQ7kNvgGraB66&_nc_oc=AdgwGU2X4rcprhIwuF6Kj6IAY4kpX8KapQ6LBD5bi7chu6n8l-2MQFyozOHHWduVgZXCAGZNsnStfm6-pXB3C5yI&_nc_zt=23&_nc_ht=scontent.fsgn2-8.fna&_nc_gid=A7Ih_2zQw-lPZRe7L-kr8Zj&oh=00_AYD_7PezVWpn6zdZjq4peVcGQV3LuWxltHThvuIWMuYo5A&oe=67BB4D5E\",\n        \"available\": false,\n        \"createdAt\": \"2025-02-19T06:16:55.881Z\",\n        \"updatedAt\": \"2025-02-19T06:20:37.311Z\",\n        \"slug\": \"combo-cham-soc-da-toan-dien-10\",\n        \"__v\": 0\n    },\n    \"option\": {}\n}"
+						}
+					]
+				},
+				{
+					"name": "get single",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8555/api/service/single",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8555",
+							"path": [
+								"api",
+								"service",
+								"single"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "New Request",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8555/api/service/single",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8555",
+									"path": [
+										"api",
+										"service",
+										"single"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "http://localhost:5173"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "1410"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"582-aaaFl37/cZXv3VF86x0tz/H4wUc\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 19 Feb 2025 06:26:54 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Get all services successfully\",\n    \"status\": 200,\n    \"data\": [\n        {\n            \"_id\": \"67b44868d2f792dc46fca394\",\n            \"serviceName\": \"Chăm sóc da dầu\",\n            \"description\": \"Nặn mụn và làm sạch mặt.\",\n            \"price\": 600000,\n            \"duration\": 150,\n            \"category\": \"single\",\n            \"subServices\": [],\n            \"image\": \"https://th.bing.com/th/id/OIP.MG0iCXGI6cnWbkxfwLpO1wHaE8?w=280&h=187&c=7&r=0&o=5&dpr=1.3&pid=1.7\",\n            \"available\": true,\n            \"createdAt\": \"2025-02-18T08:44:24.748Z\",\n            \"updatedAt\": \"2025-02-18T08:44:24.748Z\",\n            \"slug\": \"cham-soc-da-dau\",\n            \"__v\": 0\n        },\n        {\n            \"_id\": \"67b577571552a2123c248e29\",\n            \"serviceName\": \"Combo chăm sóc da toàn diện 10 (sửa)\",\n            \"description\": \"Gói combo bao gồm làm trắng da, nặn mụn, trẻ hóa da.\",\n            \"price\": 1200000,\n            \"duration\": 150,\n            \"category\": \"single\",\n            \"subServices\": [],\n            \"image\": \"https://scontent.fsgn2-8.fna.fbcdn.net/v/t39.30808-6/480702216_122142065180389020_8235936593774782217_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=aa7b47&_nc_eui2=AeEvRc4G_ursmIvAlrhOTkZYa5eOY3QmPx1rl45jdCY_HYC8pRilcFRKWnHdDjn50wxwwkb-oWWwTP0pbMb_X2IE&_nc_ohc=qjHRfi_s56UQ7kNvgGraB66&_nc_oc=AdgwGU2X4rcprhIwuF6Kj6IAY4kpX8KapQ6LBD5bi7chu6n8l-2MQFyozOHHWduVgZXCAGZNsnStfm6-pXB3C5yI&_nc_zt=23&_nc_ht=scontent.fsgn2-8.fna&_nc_gid=A7Ih_2zQw-lPZRe7L-kr8Zj&oh=00_AYD_7PezVWpn6zdZjq4peVcGQV3LuWxltHThvuIWMuYo5A&oe=67BB4D5E\",\n            \"available\": false,\n            \"createdAt\": \"2025-02-19T06:16:55.881Z\",\n            \"updatedAt\": \"2025-02-19T06:24:23.706Z\",\n            \"slug\": \"combo-cham-soc-da-toan-dien-10-(sua)\",\n            \"__v\": 0\n        }\n    ],\n    \"option\": {}\n}"
+						}
+					]
+				},
+				{
+					"name": "get combo",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8555/api/service/combo",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8555",
+							"path": [
+								"api",
+								"service",
+								"combo"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "New Request",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8555/api/service/combo",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8555",
+									"path": [
+										"api",
+										"service",
+										"combo"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "http://localhost:5173"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "1337"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"539-EhX7u2ZxK/KV4LONaJTIiTI8L2Q\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 19 Feb 2025 06:27:43 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Get all services successfully\",\n    \"status\": 200,\n    \"data\": [\n        {\n            \"_id\": \"67b4112beb4627661672825d\",\n            \"serviceName\": \"Combo chăm sóc da toàn diện\",\n            \"description\": \"Gói combo bao gồm làm trắng da, nặn mụn, trẻ hóa da.\",\n            \"price\": 1200000,\n            \"duration\": 150,\n            \"category\": \"combo\",\n            \"subServices\": [],\n            \"available\": true,\n            \"createdAt\": \"2025-02-18T04:48:43.963Z\",\n            \"updatedAt\": \"2025-02-18T09:19:00.967Z\",\n            \"slug\": \"combo-cham-soc-da-toan-dien\",\n            \"__v\": 0\n        },\n        {\n            \"_id\": \"67b4169fe0de00283d5832ba\",\n            \"serviceName\": \"Combo chăm sóc da toàn diện 2\",\n            \"description\": \"Gói combo bao gồm làm trắng da, nặn mụn, trẻ hóa da.\",\n            \"price\": 1200000,\n            \"duration\": 150,\n            \"category\": \"combo\",\n            \"subServices\": [],\n            \"available\": true,\n            \"createdAt\": \"2025-02-18T05:11:59.634Z\",\n            \"updatedAt\": \"2025-02-18T05:11:59.634Z\",\n            \"slug\": \"combo-cham-soc-da-toan-dien-2\",\n            \"__v\": 0\n        },\n        {\n            \"_id\": \"67b448b5d2f792dc46fca397\",\n            \"serviceName\": \"Combo chăm sóc da toàn diện 5\",\n            \"description\": \"Gói combo bao gồm làm trắng da, nặn mụn, trẻ hóa da.\",\n            \"price\": 1200000,\n            \"duration\": 150,\n            \"category\": \"combo\",\n            \"subServices\": [\n                \"67b44868d2f792dc46fca394\"\n            ],\n            \"image\": \"https://th.bing.com/th/id/OIP.MG0iCXGI6cnWbkxfwLpO1wHaE8?w=280&h=187&c=7&r=0&o=5&dpr=1.3&pid=1.7\",\n            \"available\": true,\n            \"createdAt\": \"2025-02-18T08:45:41.388Z\",\n            \"updatedAt\": \"2025-02-18T08:45:41.388Z\",\n            \"slug\": \"combo-cham-soc-da-toan-dien-5\",\n            \"__v\": 0\n        }\n    ],\n    \"option\": {}\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "admin",
+			"item": [
+				{
+					"name": "Users",
+					"item": [
+						{
+							"name": "get all customer",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": ""
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get all staff",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": ""
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get all therapist",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": ""
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "change active status",
+							"request": {
+								"method": "PATCH",
+								"header": [],
+								"url": {
+									"raw": ""
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "service",
+					"item": [
+						{
+							"name": "get all service",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8555/api/service/admin/",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8555",
+									"path": [
+										"api",
+										"service",
+										"admin",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "change active status",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"status\":true\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8555/api/service/admin/67b577571552a2123c248e29",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8555",
+									"path": [
+										"api",
+										"service",
+										"admin",
+										"67b577571552a2123c248e29"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "change active status",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"status\":true\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:8555/api/service/admin/67b577571552a2123c248e29",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8555",
+											"path": [
+												"api",
+												"service",
+												"admin",
+												"67b577571552a2123c248e29"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "http://localhost:5173"
+										},
+										{
+											"key": "Vary",
+											"value": "Origin"
+										},
+										{
+											"key": "Access-Control-Allow-Credentials",
+											"value": "true"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "980"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"3d4-Rgrbu1fx6MlllAOXu75Swfhf4ko\""
+										},
+										{
+											"key": "Date",
+											"value": "Wed, 19 Feb 2025 06:22:44 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"message\": \"Update status successfully\",\n    \"status\": 200,\n    \"data\": {\n        \"_id\": \"67b577571552a2123c248e29\",\n        \"serviceName\": \"Combo chăm sóc da toàn diện 10 (sửa)\",\n        \"description\": \"Gói combo bao gồm làm trắng da, nặn mụn, trẻ hóa da.\",\n        \"price\": 1200000,\n        \"duration\": 150,\n        \"category\": \"single\",\n        \"subServices\": [],\n        \"image\": \"https://scontent.fsgn2-8.fna.fbcdn.net/v/t39.30808-6/480702216_122142065180389020_8235936593774782217_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=aa7b47&_nc_eui2=AeEvRc4G_ursmIvAlrhOTkZYa5eOY3QmPx1rl45jdCY_HYC8pRilcFRKWnHdDjn50wxwwkb-oWWwTP0pbMb_X2IE&_nc_ohc=qjHRfi_s56UQ7kNvgGraB66&_nc_oc=AdgwGU2X4rcprhIwuF6Kj6IAY4kpX8KapQ6LBD5bi7chu6n8l-2MQFyozOHHWduVgZXCAGZNsnStfm6-pXB3C5yI&_nc_zt=23&_nc_ht=scontent.fsgn2-8.fna&_nc_gid=A7Ih_2zQw-lPZRe7L-kr8Zj&oh=00_AYD_7PezVWpn6zdZjq4peVcGQV3LuWxltHThvuIWMuYo5A&oe=67BB4D5E\",\n        \"available\": true,\n        \"createdAt\": \"2025-02-19T06:16:55.881Z\",\n        \"updatedAt\": \"2025-02-19T06:22:44.452Z\",\n        \"slug\": \"combo-cham-soc-da-toan-dien-10-(sua)\",\n        \"__v\": 0\n    },\n    \"option\": {}\n}"
+								}
+							]
+						},
+						{
+							"name": "get service by id",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8555/api/service/admin/67b577571552a2123c248e29",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8555",
+									"path": [
+										"api",
+										"service",
+										"admin",
+										"67b577571552a2123c248e29"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "booking",
+			"item": [
+				{
+					"name": "get all booking",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": ""
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get my booking",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": ""
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create booking",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": ""
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "edit booking",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": ""
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete booking",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": ""
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "transaction",
+			"item": [
+				{
+					"name": "get all transaction",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": ""
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get my transaction",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": ""
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "test_skin",
+			"item": [
+				{
+					"name": "get question",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": ""
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "answer",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": ""
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "blog",
+			"item": [
+				{
+					"name": "get all blog",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": ""
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create blog",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": ""
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "edit blog",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": ""
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete blog",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": ""
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "change active status",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": ""
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "schedule",
+			"item": [
+				{
+					"name": "get all schedule",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": ""
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get my schedule",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": ""
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "staff",
+			"item": [
+				{
+					"name": "check-in",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": ""
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "check-out",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": ""
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "review",
+			"item": [
+				{
+					"name": "get all reviews",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8555/api/review",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8555",
+							"path": [
+								"api",
+								"review"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "get all reviews",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8555/api/review",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8555",
+									"path": [
+										"api",
+										"review"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "http://localhost:5173"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "4570"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"11da-mWFP0leSfDrRBVO8BfLdUeQgiVk\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 21 Feb 2025 04:48:26 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Get all reviews successfully\",\n    \"status\": 200,\n    \"data\": [\n        {\n            \"_id\": \"67b7f93f3fa34f1d001dedfb\",\n            \"user\": {\n                \"_id\": \"67b76e56a21452935a1240e9\",\n                \"id\": 1740074582369,\n                \"name\": \"Huy Quang\",\n                \"email\": \"ablo@gmail.com\",\n                \"phone\": \"0123456789\",\n                \"password\": \"$2b$10$bhN9Pmp2TD6fWIm6WK4UjuYIpQzRdRgkEl75yrF1wWk0fgczSjYmi\",\n                \"role\": \"staff\",\n                \"isDeleted\": false,\n                \"status\": true,\n                \"createdAt\": \"2025-02-20T18:03:02.376Z\",\n                \"updatedAt\": \"2025-02-20T18:03:02.376Z\",\n                \"__v\": 0\n            },\n            \"service\": {\n                \"_id\": \"67b4112beb4627661672825d\",\n                \"serviceName\": \"Combo chăm sóc da toàn diện\",\n                \"description\": \"Gói combo bao gồm làm trắng da, nặn mụn, trẻ hóa da.\",\n                \"price\": 1200000,\n                \"duration\": 150,\n                \"category\": \"combo\",\n                \"subServices\": [],\n                \"available\": true,\n                \"createdAt\": \"2025-02-18T04:48:43.963Z\",\n                \"updatedAt\": \"2025-02-21T04:47:38.903Z\",\n                \"slug\": \"combo-cham-soc-da-toan-dien\",\n                \"__v\": 0,\n                \"rating\": 4.2\n            },\n            \"rating\": 1,\n            \"comment\": \"Good\",\n            \"isGoodReview\": false,\n            \"createdAt\": \"2025-02-21T03:55:43.304Z\",\n            \"updatedAt\": \"2025-02-21T03:55:43.304Z\",\n            \"__v\": 0\n        },\n        {\n            \"_id\": \"67b7f99c69bbe7c2d783ff12\",\n            \"user\": {\n                \"_id\": \"67b76e56a21452935a1240e9\",\n                \"id\": 1740074582369,\n                \"name\": \"Huy Quang\",\n                \"email\": \"ablo@gmail.com\",\n                \"phone\": \"0123456789\",\n                \"password\": \"$2b$10$bhN9Pmp2TD6fWIm6WK4UjuYIpQzRdRgkEl75yrF1wWk0fgczSjYmi\",\n                \"role\": \"staff\",\n                \"isDeleted\": false,\n                \"status\": true,\n                \"createdAt\": \"2025-02-20T18:03:02.376Z\",\n                \"updatedAt\": \"2025-02-20T18:03:02.376Z\",\n                \"__v\": 0\n            },\n            \"service\": {\n                \"_id\": \"67b4112beb4627661672825d\",\n                \"serviceName\": \"Combo chăm sóc da toàn diện\",\n                \"description\": \"Gói combo bao gồm làm trắng da, nặn mụn, trẻ hóa da.\",\n                \"price\": 1200000,\n                \"duration\": 150,\n                \"category\": \"combo\",\n                \"subServices\": [],\n                \"available\": true,\n                \"createdAt\": \"2025-02-18T04:48:43.963Z\",\n                \"updatedAt\": \"2025-02-21T04:47:38.903Z\",\n                \"slug\": \"combo-cham-soc-da-toan-dien\",\n                \"__v\": 0,\n                \"rating\": 4.2\n            },\n            \"rating\": 5,\n            \"comment\": \"Nice\",\n            \"isGoodReview\": true,\n            \"createdAt\": \"2025-02-21T03:57:16.995Z\",\n            \"updatedAt\": \"2025-02-21T04:47:38.814Z\",\n            \"__v\": 0\n        },\n        {\n            \"_id\": \"67b7fa39326be0853c387a90\",\n            \"user\": {\n                \"_id\": \"67b76e56a21452935a1240e9\",\n                \"id\": 1740074582369,\n                \"name\": \"Huy Quang\",\n                \"email\": \"ablo@gmail.com\",\n                \"phone\": \"0123456789\",\n                \"password\": \"$2b$10$bhN9Pmp2TD6fWIm6WK4UjuYIpQzRdRgkEl75yrF1wWk0fgczSjYmi\",\n                \"role\": \"staff\",\n                \"isDeleted\": false,\n                \"status\": true,\n                \"createdAt\": \"2025-02-20T18:03:02.376Z\",\n                \"updatedAt\": \"2025-02-20T18:03:02.376Z\",\n                \"__v\": 0\n            },\n            \"service\": {\n                \"_id\": \"67b4112beb4627661672825d\",\n                \"serviceName\": \"Combo chăm sóc da toàn diện\",\n                \"description\": \"Gói combo bao gồm làm trắng da, nặn mụn, trẻ hóa da.\",\n                \"price\": 1200000,\n                \"duration\": 150,\n                \"category\": \"combo\",\n                \"subServices\": [],\n                \"available\": true,\n                \"createdAt\": \"2025-02-18T04:48:43.963Z\",\n                \"updatedAt\": \"2025-02-21T04:47:38.903Z\",\n                \"slug\": \"combo-cham-soc-da-toan-dien\",\n                \"__v\": 0,\n                \"rating\": 4.2\n            },\n            \"rating\": 5,\n            \"comment\": \"Nice\",\n            \"isGoodReview\": false,\n            \"createdAt\": \"2025-02-21T03:59:53.459Z\",\n            \"updatedAt\": \"2025-02-21T03:59:53.459Z\",\n            \"__v\": 0\n        },\n        {\n            \"_id\": \"67b7fa983597657821f516b7\",\n            \"user\": {\n                \"_id\": \"67b76e56a21452935a1240e9\",\n                \"id\": 1740074582369,\n                \"name\": \"Huy Quang\",\n                \"email\": \"ablo@gmail.com\",\n                \"phone\": \"0123456789\",\n                \"password\": \"$2b$10$bhN9Pmp2TD6fWIm6WK4UjuYIpQzRdRgkEl75yrF1wWk0fgczSjYmi\",\n                \"role\": \"staff\",\n                \"isDeleted\": false,\n                \"status\": true,\n                \"createdAt\": \"2025-02-20T18:03:02.376Z\",\n                \"updatedAt\": \"2025-02-20T18:03:02.376Z\",\n                \"__v\": 0\n            },\n            \"service\": {\n                \"_id\": \"67b4112beb4627661672825d\",\n                \"serviceName\": \"Combo chăm sóc da toàn diện\",\n                \"description\": \"Gói combo bao gồm làm trắng da, nặn mụn, trẻ hóa da.\",\n                \"price\": 1200000,\n                \"duration\": 150,\n                \"category\": \"combo\",\n                \"subServices\": [],\n                \"available\": true,\n                \"createdAt\": \"2025-02-18T04:48:43.963Z\",\n                \"updatedAt\": \"2025-02-21T04:47:38.903Z\",\n                \"slug\": \"combo-cham-soc-da-toan-dien\",\n                \"__v\": 0,\n                \"rating\": 4.2\n            },\n            \"rating\": 5,\n            \"comment\": \"Nice\",\n            \"isGoodReview\": false,\n            \"createdAt\": \"2025-02-21T04:01:28.175Z\",\n            \"updatedAt\": \"2025-02-21T04:01:28.175Z\",\n            \"__v\": 0\n        },\n        {\n            \"_id\": \"67b7faba3597657821f516c2\",\n            \"user\": {\n                \"_id\": \"67b76e56a21452935a1240e9\",\n                \"id\": 1740074582369,\n                \"name\": \"Huy Quang\",\n                \"email\": \"ablo@gmail.com\",\n                \"phone\": \"0123456789\",\n                \"password\": \"$2b$10$bhN9Pmp2TD6fWIm6WK4UjuYIpQzRdRgkEl75yrF1wWk0fgczSjYmi\",\n                \"role\": \"staff\",\n                \"isDeleted\": false,\n                \"status\": true,\n                \"createdAt\": \"2025-02-20T18:03:02.376Z\",\n                \"updatedAt\": \"2025-02-20T18:03:02.376Z\",\n                \"__v\": 0\n            },\n            \"service\": {\n                \"_id\": \"67b4112beb4627661672825d\",\n                \"serviceName\": \"Combo chăm sóc da toàn diện\",\n                \"description\": \"Gói combo bao gồm làm trắng da, nặn mụn, trẻ hóa da.\",\n                \"price\": 1200000,\n                \"duration\": 150,\n                \"category\": \"combo\",\n                \"subServices\": [],\n                \"available\": true,\n                \"createdAt\": \"2025-02-18T04:48:43.963Z\",\n                \"updatedAt\": \"2025-02-21T04:47:38.903Z\",\n                \"slug\": \"combo-cham-soc-da-toan-dien\",\n                \"__v\": 0,\n                \"rating\": 4.2\n            },\n            \"rating\": 5,\n            \"comment\": \"Nice\",\n            \"isGoodReview\": false,\n            \"createdAt\": \"2025-02-21T04:02:02.794Z\",\n            \"updatedAt\": \"2025-02-21T04:02:02.794Z\",\n            \"__v\": 0\n        }\n    ],\n    \"option\": {}\n}"
+						}
+					]
+				},
+				{
+					"name": "get review by service",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8555/api/review/service/67b4112beb4627661672825d",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8555",
+							"path": [
+								"api",
+								"review",
+								"service",
+								"67b4112beb4627661672825d"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "get review by service",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8555/api/review/service/67b4112beb4627661672825d",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8555",
+									"path": [
+										"api",
+										"review",
+										"service",
+										"67b4112beb4627661672825d"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "http://localhost:5173"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "4570"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"11da-mWFP0leSfDrRBVO8BfLdUeQgiVk\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 21 Feb 2025 04:48:33 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Get all reviews successfully\",\n    \"status\": 200,\n    \"data\": [\n        {\n            \"_id\": \"67b7f93f3fa34f1d001dedfb\",\n            \"user\": {\n                \"_id\": \"67b76e56a21452935a1240e9\",\n                \"id\": 1740074582369,\n                \"name\": \"Huy Quang\",\n                \"email\": \"ablo@gmail.com\",\n                \"phone\": \"0123456789\",\n                \"password\": \"$2b$10$bhN9Pmp2TD6fWIm6WK4UjuYIpQzRdRgkEl75yrF1wWk0fgczSjYmi\",\n                \"role\": \"staff\",\n                \"isDeleted\": false,\n                \"status\": true,\n                \"createdAt\": \"2025-02-20T18:03:02.376Z\",\n                \"updatedAt\": \"2025-02-20T18:03:02.376Z\",\n                \"__v\": 0\n            },\n            \"service\": {\n                \"_id\": \"67b4112beb4627661672825d\",\n                \"serviceName\": \"Combo chăm sóc da toàn diện\",\n                \"description\": \"Gói combo bao gồm làm trắng da, nặn mụn, trẻ hóa da.\",\n                \"price\": 1200000,\n                \"duration\": 150,\n                \"category\": \"combo\",\n                \"subServices\": [],\n                \"available\": true,\n                \"createdAt\": \"2025-02-18T04:48:43.963Z\",\n                \"updatedAt\": \"2025-02-21T04:47:38.903Z\",\n                \"slug\": \"combo-cham-soc-da-toan-dien\",\n                \"__v\": 0,\n                \"rating\": 4.2\n            },\n            \"rating\": 1,\n            \"comment\": \"Good\",\n            \"isGoodReview\": false,\n            \"createdAt\": \"2025-02-21T03:55:43.304Z\",\n            \"updatedAt\": \"2025-02-21T03:55:43.304Z\",\n            \"__v\": 0\n        },\n        {\n            \"_id\": \"67b7f99c69bbe7c2d783ff12\",\n            \"user\": {\n                \"_id\": \"67b76e56a21452935a1240e9\",\n                \"id\": 1740074582369,\n                \"name\": \"Huy Quang\",\n                \"email\": \"ablo@gmail.com\",\n                \"phone\": \"0123456789\",\n                \"password\": \"$2b$10$bhN9Pmp2TD6fWIm6WK4UjuYIpQzRdRgkEl75yrF1wWk0fgczSjYmi\",\n                \"role\": \"staff\",\n                \"isDeleted\": false,\n                \"status\": true,\n                \"createdAt\": \"2025-02-20T18:03:02.376Z\",\n                \"updatedAt\": \"2025-02-20T18:03:02.376Z\",\n                \"__v\": 0\n            },\n            \"service\": {\n                \"_id\": \"67b4112beb4627661672825d\",\n                \"serviceName\": \"Combo chăm sóc da toàn diện\",\n                \"description\": \"Gói combo bao gồm làm trắng da, nặn mụn, trẻ hóa da.\",\n                \"price\": 1200000,\n                \"duration\": 150,\n                \"category\": \"combo\",\n                \"subServices\": [],\n                \"available\": true,\n                \"createdAt\": \"2025-02-18T04:48:43.963Z\",\n                \"updatedAt\": \"2025-02-21T04:47:38.903Z\",\n                \"slug\": \"combo-cham-soc-da-toan-dien\",\n                \"__v\": 0,\n                \"rating\": 4.2\n            },\n            \"rating\": 5,\n            \"comment\": \"Nice\",\n            \"isGoodReview\": true,\n            \"createdAt\": \"2025-02-21T03:57:16.995Z\",\n            \"updatedAt\": \"2025-02-21T04:47:38.814Z\",\n            \"__v\": 0\n        },\n        {\n            \"_id\": \"67b7fa39326be0853c387a90\",\n            \"user\": {\n                \"_id\": \"67b76e56a21452935a1240e9\",\n                \"id\": 1740074582369,\n                \"name\": \"Huy Quang\",\n                \"email\": \"ablo@gmail.com\",\n                \"phone\": \"0123456789\",\n                \"password\": \"$2b$10$bhN9Pmp2TD6fWIm6WK4UjuYIpQzRdRgkEl75yrF1wWk0fgczSjYmi\",\n                \"role\": \"staff\",\n                \"isDeleted\": false,\n                \"status\": true,\n                \"createdAt\": \"2025-02-20T18:03:02.376Z\",\n                \"updatedAt\": \"2025-02-20T18:03:02.376Z\",\n                \"__v\": 0\n            },\n            \"service\": {\n                \"_id\": \"67b4112beb4627661672825d\",\n                \"serviceName\": \"Combo chăm sóc da toàn diện\",\n                \"description\": \"Gói combo bao gồm làm trắng da, nặn mụn, trẻ hóa da.\",\n                \"price\": 1200000,\n                \"duration\": 150,\n                \"category\": \"combo\",\n                \"subServices\": [],\n                \"available\": true,\n                \"createdAt\": \"2025-02-18T04:48:43.963Z\",\n                \"updatedAt\": \"2025-02-21T04:47:38.903Z\",\n                \"slug\": \"combo-cham-soc-da-toan-dien\",\n                \"__v\": 0,\n                \"rating\": 4.2\n            },\n            \"rating\": 5,\n            \"comment\": \"Nice\",\n            \"isGoodReview\": false,\n            \"createdAt\": \"2025-02-21T03:59:53.459Z\",\n            \"updatedAt\": \"2025-02-21T03:59:53.459Z\",\n            \"__v\": 0\n        },\n        {\n            \"_id\": \"67b7fa983597657821f516b7\",\n            \"user\": {\n                \"_id\": \"67b76e56a21452935a1240e9\",\n                \"id\": 1740074582369,\n                \"name\": \"Huy Quang\",\n                \"email\": \"ablo@gmail.com\",\n                \"phone\": \"0123456789\",\n                \"password\": \"$2b$10$bhN9Pmp2TD6fWIm6WK4UjuYIpQzRdRgkEl75yrF1wWk0fgczSjYmi\",\n                \"role\": \"staff\",\n                \"isDeleted\": false,\n                \"status\": true,\n                \"createdAt\": \"2025-02-20T18:03:02.376Z\",\n                \"updatedAt\": \"2025-02-20T18:03:02.376Z\",\n                \"__v\": 0\n            },\n            \"service\": {\n                \"_id\": \"67b4112beb4627661672825d\",\n                \"serviceName\": \"Combo chăm sóc da toàn diện\",\n                \"description\": \"Gói combo bao gồm làm trắng da, nặn mụn, trẻ hóa da.\",\n                \"price\": 1200000,\n                \"duration\": 150,\n                \"category\": \"combo\",\n                \"subServices\": [],\n                \"available\": true,\n                \"createdAt\": \"2025-02-18T04:48:43.963Z\",\n                \"updatedAt\": \"2025-02-21T04:47:38.903Z\",\n                \"slug\": \"combo-cham-soc-da-toan-dien\",\n                \"__v\": 0,\n                \"rating\": 4.2\n            },\n            \"rating\": 5,\n            \"comment\": \"Nice\",\n            \"isGoodReview\": false,\n            \"createdAt\": \"2025-02-21T04:01:28.175Z\",\n            \"updatedAt\": \"2025-02-21T04:01:28.175Z\",\n            \"__v\": 0\n        },\n        {\n            \"_id\": \"67b7faba3597657821f516c2\",\n            \"user\": {\n                \"_id\": \"67b76e56a21452935a1240e9\",\n                \"id\": 1740074582369,\n                \"name\": \"Huy Quang\",\n                \"email\": \"ablo@gmail.com\",\n                \"phone\": \"0123456789\",\n                \"password\": \"$2b$10$bhN9Pmp2TD6fWIm6WK4UjuYIpQzRdRgkEl75yrF1wWk0fgczSjYmi\",\n                \"role\": \"staff\",\n                \"isDeleted\": false,\n                \"status\": true,\n                \"createdAt\": \"2025-02-20T18:03:02.376Z\",\n                \"updatedAt\": \"2025-02-20T18:03:02.376Z\",\n                \"__v\": 0\n            },\n            \"service\": {\n                \"_id\": \"67b4112beb4627661672825d\",\n                \"serviceName\": \"Combo chăm sóc da toàn diện\",\n                \"description\": \"Gói combo bao gồm làm trắng da, nặn mụn, trẻ hóa da.\",\n                \"price\": 1200000,\n                \"duration\": 150,\n                \"category\": \"combo\",\n                \"subServices\": [],\n                \"available\": true,\n                \"createdAt\": \"2025-02-18T04:48:43.963Z\",\n                \"updatedAt\": \"2025-02-21T04:47:38.903Z\",\n                \"slug\": \"combo-cham-soc-da-toan-dien\",\n                \"__v\": 0,\n                \"rating\": 4.2\n            },\n            \"rating\": 5,\n            \"comment\": \"Nice\",\n            \"isGoodReview\": false,\n            \"createdAt\": \"2025-02-21T04:02:02.794Z\",\n            \"updatedAt\": \"2025-02-21T04:02:02.794Z\",\n            \"__v\": 0\n        }\n    ],\n    \"option\": {}\n}"
+						}
+					]
+				},
+				{
+					"name": "create review",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"user\":\"67b76e56a21452935a1240e9\",\r\n    \"service\":\"67b4112beb4627661672825d\",\r\n    \"rating\": 5,\r\n    \"comment\": \"Nice\" ,\r\n    \"isGoodReview\": false\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8555/api/review/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8555",
+							"path": [
+								"api",
+								"review",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "create review",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"user\":\"67b76e56a21452935a1240e9\",\r\n    \"service\":\"67b4112beb4627661672825d\",\r\n    \"rating\": 5,\r\n    \"comment\": \"Nice\" ,\r\n    \"isGoodReview\": false\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8555/api/review/",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8555",
+									"path": [
+										"api",
+										"review",
+										""
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "http://localhost:5173"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "314"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"13a-kv0ocekLq65/3nniCjmh+WlWkk4\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 21 Feb 2025 04:48:38 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Review created successfully\",\n    \"status\": 201,\n    \"data\": {\n        \"user\": \"67b76e56a21452935a1240e9\",\n        \"service\": \"67b4112beb4627661672825d\",\n        \"rating\": 5,\n        \"comment\": \"Nice\",\n        \"isGoodReview\": false,\n        \"_id\": \"67b805a6d1dbb72656a7829f\",\n        \"createdAt\": \"2025-02-21T04:48:38.570Z\",\n        \"updatedAt\": \"2025-02-21T04:48:38.570Z\",\n        \"__v\": 0\n    },\n    \"option\": {}\n}"
+						}
+					]
+				},
+				{
+					"name": "update review",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"rating\": 2,\r\n    \"comment\": \"nice\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8555/api/review/67b7f93f3fa34f1d001dedfb",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8555",
+							"path": [
+								"api",
+								"review",
+								"67b7f93f3fa34f1d001dedfb"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "update review",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"rating\": 2,\r\n    \"comment\": \"nice\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8555/api/review/67b7f93f3fa34f1d001dedfb",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8555",
+									"path": [
+										"api",
+										"review",
+										"67b7f93f3fa34f1d001dedfb"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "http://localhost:5173"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "314"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"13a-RQLK4jYzVb1Fw8/lVU5iUCf7BTw\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 21 Feb 2025 04:49:01 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Review updated successfully\",\n    \"status\": 200,\n    \"data\": {\n        \"_id\": \"67b7f93f3fa34f1d001dedfb\",\n        \"user\": \"67b76e56a21452935a1240e9\",\n        \"service\": \"67b4112beb4627661672825d\",\n        \"rating\": 2,\n        \"comment\": \"nice\",\n        \"isGoodReview\": false,\n        \"createdAt\": \"2025-02-21T03:55:43.304Z\",\n        \"updatedAt\": \"2025-02-21T04:49:01.686Z\",\n        \"__v\": 0\n    },\n    \"option\": {}\n}"
+						}
+					]
+				},
+				{
+					"name": "delete review",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8555/api/review/delete/67b7f93f3fa34f1d001dedfb",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8555",
+							"path": [
+								"api",
+								"review",
+								"delete",
+								"67b7f93f3fa34f1d001dedfb"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "delete review",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8555/api/review/delete/67b7f93f3fa34f1d001dedfb",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8555",
+									"path": [
+										"api",
+										"review",
+										"delete",
+										"67b7f93f3fa34f1d001dedfb"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "http://localhost:5173"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "76"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"4c-XeQplxpLI018+e5I6nm0nLZCa6I\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 21 Feb 2025 04:49:31 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Review deleted successfully\",\n    \"status\": 200,\n    \"data\": {},\n    \"option\": {}\n}"
+						}
+					]
+				},
+				{
+					"name": "get review by userid",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8555/api/review/user/67b76e56a21452935a1240e9",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8555",
+							"path": [
+								"api",
+								"review",
+								"user",
+								"67b76e56a21452935a1240e9"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "New Request",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8555/api/review/user/67b76e56a21452935a1240e9",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8555",
+									"path": [
+										"api",
+										"review",
+										"user",
+										"67b76e56a21452935a1240e9"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "http://localhost:5173"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "4570"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"11da-u3yNXe9Phl+8xdb9rloTM2MwFSc\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 21 Feb 2025 04:49:41 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Get all reviews successfully\",\n    \"status\": 200,\n    \"data\": [\n        {\n            \"_id\": \"67b7f99c69bbe7c2d783ff12\",\n            \"user\": {\n                \"_id\": \"67b76e56a21452935a1240e9\",\n                \"id\": 1740074582369,\n                \"name\": \"Huy Quang\",\n                \"email\": \"ablo@gmail.com\",\n                \"phone\": \"0123456789\",\n                \"password\": \"$2b$10$bhN9Pmp2TD6fWIm6WK4UjuYIpQzRdRgkEl75yrF1wWk0fgczSjYmi\",\n                \"role\": \"staff\",\n                \"isDeleted\": false,\n                \"status\": true,\n                \"createdAt\": \"2025-02-20T18:03:02.376Z\",\n                \"updatedAt\": \"2025-02-20T18:03:02.376Z\",\n                \"__v\": 0\n            },\n            \"service\": {\n                \"_id\": \"67b4112beb4627661672825d\",\n                \"serviceName\": \"Combo chăm sóc da toàn diện\",\n                \"description\": \"Gói combo bao gồm làm trắng da, nặn mụn, trẻ hóa da.\",\n                \"price\": 1200000,\n                \"duration\": 150,\n                \"category\": \"combo\",\n                \"subServices\": [],\n                \"available\": true,\n                \"createdAt\": \"2025-02-18T04:48:43.963Z\",\n                \"updatedAt\": \"2025-02-21T04:49:01.770Z\",\n                \"slug\": \"combo-cham-soc-da-toan-dien\",\n                \"__v\": 0,\n                \"rating\": 4.5\n            },\n            \"rating\": 5,\n            \"comment\": \"Nice\",\n            \"isGoodReview\": true,\n            \"createdAt\": \"2025-02-21T03:57:16.995Z\",\n            \"updatedAt\": \"2025-02-21T04:47:38.814Z\",\n            \"__v\": 0\n        },\n        {\n            \"_id\": \"67b7fa39326be0853c387a90\",\n            \"user\": {\n                \"_id\": \"67b76e56a21452935a1240e9\",\n                \"id\": 1740074582369,\n                \"name\": \"Huy Quang\",\n                \"email\": \"ablo@gmail.com\",\n                \"phone\": \"0123456789\",\n                \"password\": \"$2b$10$bhN9Pmp2TD6fWIm6WK4UjuYIpQzRdRgkEl75yrF1wWk0fgczSjYmi\",\n                \"role\": \"staff\",\n                \"isDeleted\": false,\n                \"status\": true,\n                \"createdAt\": \"2025-02-20T18:03:02.376Z\",\n                \"updatedAt\": \"2025-02-20T18:03:02.376Z\",\n                \"__v\": 0\n            },\n            \"service\": {\n                \"_id\": \"67b4112beb4627661672825d\",\n                \"serviceName\": \"Combo chăm sóc da toàn diện\",\n                \"description\": \"Gói combo bao gồm làm trắng da, nặn mụn, trẻ hóa da.\",\n                \"price\": 1200000,\n                \"duration\": 150,\n                \"category\": \"combo\",\n                \"subServices\": [],\n                \"available\": true,\n                \"createdAt\": \"2025-02-18T04:48:43.963Z\",\n                \"updatedAt\": \"2025-02-21T04:49:01.770Z\",\n                \"slug\": \"combo-cham-soc-da-toan-dien\",\n                \"__v\": 0,\n                \"rating\": 4.5\n            },\n            \"rating\": 5,\n            \"comment\": \"Nice\",\n            \"isGoodReview\": false,\n            \"createdAt\": \"2025-02-21T03:59:53.459Z\",\n            \"updatedAt\": \"2025-02-21T03:59:53.459Z\",\n            \"__v\": 0\n        },\n        {\n            \"_id\": \"67b7fa983597657821f516b7\",\n            \"user\": {\n                \"_id\": \"67b76e56a21452935a1240e9\",\n                \"id\": 1740074582369,\n                \"name\": \"Huy Quang\",\n                \"email\": \"ablo@gmail.com\",\n                \"phone\": \"0123456789\",\n                \"password\": \"$2b$10$bhN9Pmp2TD6fWIm6WK4UjuYIpQzRdRgkEl75yrF1wWk0fgczSjYmi\",\n                \"role\": \"staff\",\n                \"isDeleted\": false,\n                \"status\": true,\n                \"createdAt\": \"2025-02-20T18:03:02.376Z\",\n                \"updatedAt\": \"2025-02-20T18:03:02.376Z\",\n                \"__v\": 0\n            },\n            \"service\": {\n                \"_id\": \"67b4112beb4627661672825d\",\n                \"serviceName\": \"Combo chăm sóc da toàn diện\",\n                \"description\": \"Gói combo bao gồm làm trắng da, nặn mụn, trẻ hóa da.\",\n                \"price\": 1200000,\n                \"duration\": 150,\n                \"category\": \"combo\",\n                \"subServices\": [],\n                \"available\": true,\n                \"createdAt\": \"2025-02-18T04:48:43.963Z\",\n                \"updatedAt\": \"2025-02-21T04:49:01.770Z\",\n                \"slug\": \"combo-cham-soc-da-toan-dien\",\n                \"__v\": 0,\n                \"rating\": 4.5\n            },\n            \"rating\": 5,\n            \"comment\": \"Nice\",\n            \"isGoodReview\": false,\n            \"createdAt\": \"2025-02-21T04:01:28.175Z\",\n            \"updatedAt\": \"2025-02-21T04:01:28.175Z\",\n            \"__v\": 0\n        },\n        {\n            \"_id\": \"67b7faba3597657821f516c2\",\n            \"user\": {\n                \"_id\": \"67b76e56a21452935a1240e9\",\n                \"id\": 1740074582369,\n                \"name\": \"Huy Quang\",\n                \"email\": \"ablo@gmail.com\",\n                \"phone\": \"0123456789\",\n                \"password\": \"$2b$10$bhN9Pmp2TD6fWIm6WK4UjuYIpQzRdRgkEl75yrF1wWk0fgczSjYmi\",\n                \"role\": \"staff\",\n                \"isDeleted\": false,\n                \"status\": true,\n                \"createdAt\": \"2025-02-20T18:03:02.376Z\",\n                \"updatedAt\": \"2025-02-20T18:03:02.376Z\",\n                \"__v\": 0\n            },\n            \"service\": {\n                \"_id\": \"67b4112beb4627661672825d\",\n                \"serviceName\": \"Combo chăm sóc da toàn diện\",\n                \"description\": \"Gói combo bao gồm làm trắng da, nặn mụn, trẻ hóa da.\",\n                \"price\": 1200000,\n                \"duration\": 150,\n                \"category\": \"combo\",\n                \"subServices\": [],\n                \"available\": true,\n                \"createdAt\": \"2025-02-18T04:48:43.963Z\",\n                \"updatedAt\": \"2025-02-21T04:49:01.770Z\",\n                \"slug\": \"combo-cham-soc-da-toan-dien\",\n                \"__v\": 0,\n                \"rating\": 4.5\n            },\n            \"rating\": 5,\n            \"comment\": \"Nice\",\n            \"isGoodReview\": false,\n            \"createdAt\": \"2025-02-21T04:02:02.794Z\",\n            \"updatedAt\": \"2025-02-21T04:02:02.794Z\",\n            \"__v\": 0\n        },\n        {\n            \"_id\": \"67b805a6d1dbb72656a7829f\",\n            \"user\": {\n                \"_id\": \"67b76e56a21452935a1240e9\",\n                \"id\": 1740074582369,\n                \"name\": \"Huy Quang\",\n                \"email\": \"ablo@gmail.com\",\n                \"phone\": \"0123456789\",\n                \"password\": \"$2b$10$bhN9Pmp2TD6fWIm6WK4UjuYIpQzRdRgkEl75yrF1wWk0fgczSjYmi\",\n                \"role\": \"staff\",\n                \"isDeleted\": false,\n                \"status\": true,\n                \"createdAt\": \"2025-02-20T18:03:02.376Z\",\n                \"updatedAt\": \"2025-02-20T18:03:02.376Z\",\n                \"__v\": 0\n            },\n            \"service\": {\n                \"_id\": \"67b4112beb4627661672825d\",\n                \"serviceName\": \"Combo chăm sóc da toàn diện\",\n                \"description\": \"Gói combo bao gồm làm trắng da, nặn mụn, trẻ hóa da.\",\n                \"price\": 1200000,\n                \"duration\": 150,\n                \"category\": \"combo\",\n                \"subServices\": [],\n                \"available\": true,\n                \"createdAt\": \"2025-02-18T04:48:43.963Z\",\n                \"updatedAt\": \"2025-02-21T04:49:01.770Z\",\n                \"slug\": \"combo-cham-soc-da-toan-dien\",\n                \"__v\": 0,\n                \"rating\": 4.5\n            },\n            \"rating\": 5,\n            \"comment\": \"Nice\",\n            \"isGoodReview\": false,\n            \"createdAt\": \"2025-02-21T04:48:38.570Z\",\n            \"updatedAt\": \"2025-02-21T04:48:38.570Z\",\n            \"__v\": 0\n        }\n    ],\n    \"option\": {}\n}"
+						}
+					]
+				},
+				{
+					"name": "get review by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8555/api/review/67b7f99c69bbe7c2d783ff12",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8555",
+							"path": [
+								"api",
+								"review",
+								"67b7f99c69bbe7c2d783ff12"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "New Request",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8555/api/review/67b7f99c69bbe7c2d783ff12",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8555",
+									"path": [
+										"api",
+										"review",
+										"67b7f99c69bbe7c2d783ff12"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "http://localhost:5173"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "309"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"135-vUhdjbS70g6gYQByZeXzQWXK2Zs\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 21 Feb 2025 04:49:47 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Get review successfully\",\n    \"status\": 200,\n    \"data\": {\n        \"_id\": \"67b7f99c69bbe7c2d783ff12\",\n        \"user\": \"67b76e56a21452935a1240e9\",\n        \"service\": \"67b4112beb4627661672825d\",\n        \"rating\": 5,\n        \"comment\": \"Nice\",\n        \"isGoodReview\": true,\n        \"createdAt\": \"2025-02-21T03:57:16.995Z\",\n        \"updatedAt\": \"2025-02-21T04:47:38.814Z\",\n        \"__v\": 0\n    },\n    \"option\": {}\n}"
+						}
+					]
+				},
+				{
+					"name": "update isGoodReview",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8555/api/review/isGoodReview/67b7f99c69bbe7c2d783ff12",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8555",
+							"path": [
+								"api",
+								"review",
+								"isGoodReview",
+								"67b7f99c69bbe7c2d783ff12"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "New Request",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8555/api/review/isGoodReview/67b7f99c69bbe7c2d783ff12",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8555",
+									"path": [
+										"api",
+										"review",
+										"isGoodReview",
+										"67b7f99c69bbe7c2d783ff12"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "http://localhost:5173"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "314"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"13a-6Z9CFN7w2V/oi4IUbjqbPWsUbtM\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 21 Feb 2025 04:50:04 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Review updated successfully\",\n    \"status\": 200,\n    \"data\": {\n        \"_id\": \"67b7f99c69bbe7c2d783ff12\",\n        \"user\": \"67b76e56a21452935a1240e9\",\n        \"service\": \"67b4112beb4627661672825d\",\n        \"rating\": 5,\n        \"comment\": \"Nice\",\n        \"isGoodReview\": false,\n        \"createdAt\": \"2025-02-21T03:57:16.995Z\",\n        \"updatedAt\": \"2025-02-21T04:50:04.082Z\",\n        \"__v\": 0\n    },\n    \"option\": {}\n}"
+						}
+					]
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{userToken3}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}

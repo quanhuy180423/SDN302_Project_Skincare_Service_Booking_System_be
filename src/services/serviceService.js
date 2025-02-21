@@ -1,20 +1,26 @@
 import Service from "../models/Service";
+import APIError from "../utils/APIError";
+import _ from "lodash";
 
 const serviceService = {
-  getAllServices: async () => {
-    try {
-      const services = await Service.find({ available: true });
-      return services;
-    } catch (error) {
-      throw new Error("Error fetching services");
-    }
+  getAllServices: async (query) => {
+    const { sortBy, limit, page, q, ...rest } = query;
+    const filter = { ...rest, available: true };
+    const options = {
+      sortBy: sortBy || "createdAt",
+      limit: limit ? parseInt(limit) : 20,
+      page: page ? parseInt(page) : 1,
+      allowSearchFields: ["serviceName"],
+      q: q ?? "",
+    };
+    return await Service.paginate(filter, options);
   },
   getServiceById: async (id) => {
     try {
       const service = await Service.findOne({ _id: id, available: true });
       return service;
     } catch (error) {
-      throw new Error("Service not found");
+      throw new Error(error.message);
     }
   },
   createService: async (service) => {
@@ -45,27 +51,36 @@ const serviceService = {
       throw new Error(error.message);
     }
   },
-  updateService: async (id, service) => {
-    if (service.subServices && service.subServices.length > 0) {
-      const subServiceDocs = await Service.find({
-        _id: { $in: service.subServices },
-      });
-      const invalidSubServices = subServiceDocs.filter(
-        (sub) => sub.category !== "single"
-      );
-      if (invalidSubServices.length > 0) {
-        throw new Error(
-          "Một hoặc nhiều subServices không thuộc loại 'single'."
+  updateService: async (serviceID, updateData) => {
+    try {
+      if (updateData.subServices && updateData.subServices.length > 0) {
+        const subServiceDocs = await Service.find({
+          _id: { $in: updateData.subServices },
+        });
+        const invalidSubServices = subServiceDocs.filter(
+          (sub) => sub.category !== "single"
         );
+        if (invalidSubServices.length > 0) {
+          throw new APIError(
+            400,
+            "Một hoặc nhiều subServices không thuộc loại 'single'."
+          );
+        }
       }
-    }
 
-    const updateService = await Service.findByIdAndUpdate(
-      id,
-      { $set: service },
-      { new: true }
-    );
-    return updateService;
+      const updateService = await Service.findByIdAndUpdate(
+        serviceID,
+        { $set: updateData },
+        { new: true }
+      );
+
+      if (!updateService) {
+        throw new APIError(404, "Service not found");
+      }
+      return updateService;
+    } catch (error) {
+      throw new APIError(404, error.message);
+    }
   },
   deleteService: async (id) => {
     try {
@@ -79,56 +94,72 @@ const serviceService = {
       );
       return deleteService;
     } catch (error) {
-      throw new Error("Error deleting service");
+      throw new APIError(404, error.message);
     }
   },
-  getAllServicesByAdmin: async () => {
-    try {
-      const services = await Service.find();
-      return services;
-    } catch (error) {
-      throw new Error("Error fetching services");
+  getAllServicesByAdmin: async (query) => {
+    const { sortBy, limit, page, fields, q, ...filter } = query;
+
+    const allowedFields = ["serviceName", "id"];
+    const newFilter = _.pick(filter, allowedFields);
+
+    if (Object.keys(filter).some((key) => !allowedFields.includes(key))) {
+      throw new Error("Search can only be performed by serviceName or id");
     }
+
+    if (newFilter.id) {
+      newFilter._id = newFilter.id;
+      delete newFilter.id;
+    }
+
+    return await Service.paginate(newFilter, {
+      sortBy,
+      limit: limit ?? 20,
+      page: page ?? 1,
+      fields,
+      allowSearchFields: ["serviceName", "id"],
+      q: q ?? "",
+    });
   },
   getServiceByIdByAdmin: async (id) => {
-    try {
-      if (!Service.findById(id)) {
-        throw new Error("Service not found");
-      }
-      const service = await Service.findById(id);
-      return service;
-    } catch (error) {
-      throw new Error("Error fetching service");
+    if (!Service.findById(id)) {
+      throw new APIError(404, "Service not found");
     }
+    const service = await Service.findById(id);
+    return service;
   },
   updateStatusByAdmin: async (id, status) => {
-    try {
-      const service = await Service.findById(id);
-      if (!service) {
-        throw new Error("Service not found");
-      }
-      service.available = status;
-      await service.save();
-      return service;
-    } catch (error) {
-      throw new Error("Error updating status");
+    const service = await Service.findById(id);
+    if (!service) {
+      throw new APIError(404, "Service not found");
     }
+    service.available = status;
+    await service.save();
+    return service;
   },
-  getAllSingleServices: async () => {
-    try {
-      const services = await Service.find({ category: "single" });
-      return services;
-    } catch (error) {
-      throw new Error("Error fetching services");
-    }
+  getAllSingleServices: async (query) => {
+    const { sortBy, limit, page, q, ...rest } = query;
+    const filter = { ...rest, category: "single" };
+    const options = {
+      sortBy: sortBy || "createdAt",
+      limit: limit ? parseInt(limit) : 20,
+      page: page ? parseInt(page) : 1,
+      allowSearchFields: ["serviceName"],
+      q: q ?? "",
+    };
+    return await Service.paginate(filter, options);
   },
-  getAllComboServices: async () => {
-    try {
-      const services = await Service.find({ category: "combo" });
-      return services;
-    } catch (error) {
-      throw new Error("Error fetching services");
-    }
+  getAllComboServices: async (query) => {
+    const { sortBy, limit, page, q, ...rest } = query;
+    const filter = { ...rest, category: "combo" };
+    const options = {
+      sortBy: sortBy || "createdAt",
+      limit: limit ? parseInt(limit) : 20,
+      page: page ? parseInt(page) : 1,
+      allowSearchFields: ["serviceName"],
+      q: q ?? "",
+    };
+    return await Service.paginate(filter, options);
   },
 };
 export default serviceService;

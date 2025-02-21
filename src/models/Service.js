@@ -65,6 +65,8 @@ serviceSchema.pre("save", function (next) {
   next();
 });
 
+serviceSchema.plugin(require("./plugin/index"));
+
 const Service = mongoose.model("Service", serviceSchema);
 
 export default Service;

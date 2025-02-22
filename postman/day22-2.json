@@ -712,6 +712,40 @@
 					]
 				},
 				{
+					"name": "search service",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8556/api/service/search/sing",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8556",
+							"path": [
+								"api",
+								"service",
+								"search",
+								"sing"
+							],
+							"query": [
+								{
+									"key": "serviceName",
+									"value": "sửa",
+									"disabled": true
+								},
+								{
+									"key": "price",
+									"value": "0",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
 					"name": "get service",
 					"request": {
 						"method": "GET",
@@ -1570,6 +1604,29 @@
 								}
 							},
 							"response": []
+						},
+						{
+							"name": "search service",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8556/api/admin/service/search/sing",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8556",
+									"path": [
+										"api",
+										"admin",
+										"service",
+										"search",
+										"sing"
+									]
+								}
+							},
+							"response": []
 						}
 					]
 				}
@@ -1991,7 +2048,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"user\":\"67b76e56a21452935a1240e9\",\r\n    \"service\":\"67b4112beb4627661672825d\",\r\n    \"rating\": 5,\r\n    \"comment\": \"Nice\" ,\r\n    \"isGoodReview\": false\r\n}",
+							"raw": "{\r\n    \"user\":\"67b8ab15b61a271375a781e5\",\r\n    \"service\":\"67b4112beb4627661672825d\",\r\n    \"rating\": 1,\r\n    \"comment\": \"Nice\" ,\r\n    \"isGoodReview\": false\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -2577,6 +2634,59 @@
 							"body": "{\n    \"message\": \"Review updated successfully\",\n    \"status\": 200,\n    \"data\": {\n        \"_id\": \"67b7f99c69bbe7c2d783ff12\",\n        \"user\": \"67b76e56a21452935a1240e9\",\n        \"service\": \"67b4112beb4627661672825d\",\n        \"rating\": 5,\n        \"comment\": \"Nice\",\n        \"isGoodReview\": false,\n        \"createdAt\": \"2025-02-21T03:57:16.995Z\",\n        \"updatedAt\": \"2025-02-21T04:50:04.082Z\",\n        \"__v\": 0\n    },\n    \"option\": {}\n}"
 						}
 					]
+				},
+				{
+					"name": "search review",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8556/api/review/search/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8556",
+							"path": [
+								"api",
+								"review",
+								"search",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "sort review",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8556/api/review/sort?sortBy=rating&order=asx",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8556",
+							"path": [
+								"api",
+								"review",
+								"sort"
+							],
+							"query": [
+								{
+									"key": "sortBy",
+									"value": "rating"
+								},
+								{
+									"key": "order",
+									"value": "asx"
+								}
+							]
+						}
+					},
+					"response": []
 				}
 			]
 		}

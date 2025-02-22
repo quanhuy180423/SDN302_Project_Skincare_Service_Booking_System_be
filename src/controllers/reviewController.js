@@ -2,6 +2,7 @@ import { BAD_REQUEST, CREATED, OK } from "../config/response.config";
 import catchAsync from "../utils/catchAsync";
 import reviewService from "../services/reviewService";
 import APIError from "../utils/APIError";
+import Review from "../models/Review";
 
 const reviewController = {
   getAllReviews: catchAsync(async (req, res) => {
@@ -111,6 +112,61 @@ const reviewController = {
     }
 
     return OK(res, "Review updated successfully", review);
+  }),
+
+  searchReview: catchAsync(async (req, res) => {
+    const keyword = req.params.key; // Lấy keyword từ query params
+
+    if (!keyword) {
+      return res.status(400).json({ message: "Keyword is required" });
+    }
+
+    const reviews = await Review.find()
+      .populate({
+        path: "user",
+        select: "name",
+      })
+      .populate({
+        path: "service",
+        select: "serviceName",
+      })
+      .then((data) => {
+        return data.filter(
+          (review) =>
+            review.user?.firstName
+              ?.toLowerCase()
+              .includes(keyword.toLowerCase()) ||
+            review.user?.lastName
+              ?.toLowerCase()
+              .includes(keyword.toLowerCase()) ||
+            review.service?.serviceName
+              ?.toLowerCase()
+              .includes(keyword.toLowerCase())
+        );
+      });
+
+    res.setHeader("Cache-Control", "no-cache");
+    return res.status(200).json({
+      message: reviews.length > 0 ? "Reviews found" : "No reviews found",
+      reviews,
+    });
+  }),
+
+  sortReview: catchAsync(async (req, res) => {
+    const { sortBy = "createdAt", order = "desc" } = req.query;
+
+    const reviews = await Review.find()
+      .populate({
+        path: "user",
+        select: "username email",
+      })
+      .populate({
+        path: "service",
+        select: "serviceName",
+      })
+      .sort({ [sortBy]: order === "desc" ? -1 : 1 });
+
+    return OK(res, "Get all reviews successfully", reviews);
   }),
 };
 

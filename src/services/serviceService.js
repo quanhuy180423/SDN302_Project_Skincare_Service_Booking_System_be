@@ -121,5 +121,13 @@ const serviceService = {
     };
     return await Service.paginate(filter, options);
   },
+  // searchService: async (keyword) => {
+  //   if (!keyword) {
+  //     throw new Error("Keyword is required");
+  //   }
+  //   return await Service.find({
+  //     serviceName: { $regex: keyword, $options: "i" },
+  //   });
+  // },
 };
 export default serviceService;

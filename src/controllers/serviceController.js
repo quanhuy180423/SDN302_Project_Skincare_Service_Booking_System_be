@@ -2,6 +2,7 @@ import { BAD_REQUEST, CREATED, NOT_FOUND, OK } from "../config/response.config";
 import serviceService from "../services/serviceService";
 import catchAsync from "../utils/catchAsync";
 import APIError from "../utils/APIError";
+import Service from "../models/Service";
 
 const serviceController = {
   getAllServices: catchAsync(async (req, res) => {
@@ -53,6 +54,32 @@ const serviceController = {
       return NOT_FOUND(res, "Service not found");
     }
     return OK(res, "Get all services successfully", services);
+  }),
+  searchService: catchAsync(async (req, res) => {
+    const keyword = req.params.key;
+
+    if (!keyword) {
+      return res.status(400).json({ message: "Keyword is required" });
+    }
+
+    const services = await Service.find({
+      available: true,
+      $or: [
+        { serviceName: { $regex: keyword, $options: "i" } },
+        { description: { $regex: keyword, $options: "i" } },
+        { category: { $regex: keyword, $options: "i" } },
+      ],
+    });
+
+    if (services.length > 0) {
+      res.setHeader("Cache-Control", "no-cache");
+      return res.status(200).json({ message: "Services found", services });
+    } else {
+      res.setHeader("Cache-Control", "no-cache");
+      return res
+        .status(200)
+        .json({ message: "No services found", services: [] });
+    }
   }),
 };
 

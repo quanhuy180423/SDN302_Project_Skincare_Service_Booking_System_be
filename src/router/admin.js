@@ -3,6 +3,7 @@ import adminController from "../controllers/adminController";
 const router = express.Router();
 
 router.get("/service/", adminController.getAllServices);
+router.get("/service/search/:key", adminController.searchService);
 router.get("/service/single/", adminController.getAllSingleServices);
 router.get("/service/combo/", adminController.getAllComboServices);
 router.get("/service/:id", adminController.getServiceByIdByAdmin);

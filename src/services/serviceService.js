@@ -97,49 +97,9 @@ const serviceService = {
       throw new APIError(404, error.message);
     }
   },
-  getAllServicesByAdmin: async (query) => {
-    const { sortBy, limit, page, fields, q, ...filter } = query;
-
-    const allowedFields = ["serviceName", "id"];
-    const newFilter = _.pick(filter, allowedFields);
-
-    if (Object.keys(filter).some((key) => !allowedFields.includes(key))) {
-      throw new Error("Search can only be performed by serviceName or id");
-    }
-
-    if (newFilter.id) {
-      newFilter._id = newFilter.id;
-      delete newFilter.id;
-    }
-
-    return await Service.paginate(newFilter, {
-      sortBy,
-      limit: limit ?? 20,
-      page: page ?? 1,
-      fields,
-      allowSearchFields: ["serviceName", "id"],
-      q: q ?? "",
-    });
-  },
-  getServiceByIdByAdmin: async (id) => {
-    if (!Service.findById(id)) {
-      throw new APIError(404, "Service not found");
-    }
-    const service = await Service.findById(id);
-    return service;
-  },
-  updateStatusByAdmin: async (id, status) => {
-    const service = await Service.findById(id);
-    if (!service) {
-      throw new APIError(404, "Service not found");
-    }
-    service.available = status;
-    await service.save();
-    return service;
-  },
   getAllSingleServices: async (query) => {
     const { sortBy, limit, page, q, ...rest } = query;
-    const filter = { ...rest, category: "single" };
+    const filter = { ...rest, category: "single", available: true };
     const options = {
       sortBy: sortBy || "createdAt",
       limit: limit ? parseInt(limit) : 20,
@@ -151,7 +111,7 @@ const serviceService = {
   },
   getAllComboServices: async (query) => {
     const { sortBy, limit, page, q, ...rest } = query;
-    const filter = { ...rest, category: "combo" };
+    const filter = { ...rest, category: "combo", available: true };
     const options = {
       sortBy: sortBy || "createdAt",
       limit: limit ? parseInt(limit) : 20,

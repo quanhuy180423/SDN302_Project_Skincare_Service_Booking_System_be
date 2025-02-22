@@ -631,6 +631,13 @@
 								"api",
 								"service",
 								""
+							],
+							"query": [
+								{
+									"key": "serviceName",
+									"value": "Chăm sóc da dầu",
+									"disabled": true
+								}
 							]
 						}
 					},
@@ -1112,6 +1119,13 @@
 								"api",
 								"service",
 								"single"
+							],
+							"query": [
+								{
+									"key": "serviceName",
+									"value": "Chăm sóc da dầu",
+									"disabled": true
+								}
 							]
 						}
 					},
@@ -1204,8 +1218,8 @@
 							],
 							"query": [
 								{
-									"key": "",
-									"value": "",
+									"key": "serviceName",
+									"value": "Combo chăm sóc da toàn diện 5",
 									"disabled": true
 								}
 							]
@@ -1344,7 +1358,7 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "http://localhost:8555/api/service/admin/",
+									"raw": "http://localhost:8555/api/admin/service/",
 									"protocol": "http",
 									"host": [
 										"localhost"
@@ -1352,8 +1366,8 @@
 									"port": "8555",
 									"path": [
 										"api",
-										"service",
 										"admin",
+										"service",
 										""
 									],
 									"query": [
@@ -1382,7 +1396,7 @@
 									}
 								},
 								"url": {
-									"raw": "http://localhost:8555/api/service/admin/67b577571552a2123c248e29",
+									"raw": "http://localhost:8555/api/admin/service/67b577571552a2123c248e29",
 									"protocol": "http",
 									"host": [
 										"localhost"
@@ -1390,8 +1404,8 @@
 									"port": "8555",
 									"path": [
 										"api",
-										"service",
 										"admin",
+										"service",
 										"67b577571552a2123c248e29"
 									]
 								}
@@ -1482,7 +1496,29 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "http://localhost:8555/api/service/admin/67b577571552a2123c248e29",
+									"raw": "http://localhost:8556/api/admin/service/67b577571552a2123c248e29",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8556",
+									"path": [
+										"api",
+										"admin",
+										"service",
+										"67b577571552a2123c248e29"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get service single",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8555/api/admin/service/single/",
 									"protocol": "http",
 									"host": [
 										"localhost"
@@ -1490,9 +1526,46 @@
 									"port": "8555",
 									"path": [
 										"api",
-										"service",
 										"admin",
-										"67b577571552a2123c248e29"
+										"service",
+										"single",
+										""
+									],
+									"query": [
+										{
+											"key": "serviceName",
+											"value": "Combo chăm sóc da toàn diện222444444444564",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get service combo",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8555/api/admin/service/combo/?serviceName=Combo chăm sóc da toàn diện",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8555",
+									"path": [
+										"api",
+										"admin",
+										"service",
+										"combo",
+										""
+									],
+									"query": [
+										{
+											"key": "serviceName",
+											"value": "Combo chăm sóc da toàn diện"
+										}
 									]
 								}
 							},

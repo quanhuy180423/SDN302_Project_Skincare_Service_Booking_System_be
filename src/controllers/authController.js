@@ -4,15 +4,17 @@ import regexPatterns from '../utils/toRegex';
 
 const register = async (req, res) => {
     try {
-        const { name, email, password } = req.body;
-        if (!email || !password || !name) {
+        const { username, email, password, phone } = req.body;
+        if (!email || !password || !username || !phone) {
             return BAD_REQUEST(res, "Missing required fields");
         } else if (!regexPatterns.email(email)) {
             return BAD_REQUEST(res, "Invalid email format");
         }else if (password.length < 6) {
             return BAD_REQUEST(res, "Password must be at least 6 characters long");
+        }else if (phone.length < 10 && !regexPatterns.phoneVN(phone)) {
+            return BAD_REQUEST(res, "Invalid phone number");
         }
-        const response = await authService.registerUser({ name, email, password });
+        const response = await authService.registerUser({ username, email, password, phone });
         if (!response.success) {
             // Xử lý các trường hợp lỗi khác nhau
             switch (response.statusCode) {

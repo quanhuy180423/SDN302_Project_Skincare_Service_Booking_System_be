@@ -70,8 +70,7 @@ const checkTokenWithCookie = (req, res, next) => {
     if (defaultUrl.includes(req.path)) {
         return next();
     }
-
-    if ((req.cookies && req.cookies.jwt) || req.headers.authorization.split(' ')[1]) {
+    if ((req.cookies && req.cookies.jwt) || (req.headers.authorization && req.headers.authorization.split(' ')[1])) {
         let reqToken = req.cookies.jwt || req.headers.authorization.split(' ')[1];
         let reqDecoded = verifyToken(reqToken);
         if (reqDecoded !== null) {

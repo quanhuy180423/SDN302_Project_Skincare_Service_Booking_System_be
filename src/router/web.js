@@ -4,24 +4,20 @@ import authRouter from "./auth";
 import serviceRouter from "./service";
 import reviewRouter from "./review";
 import adminRouter from "./admin";
-import {
-  checkTokenWithCookie,
-  checkAuthentication,
-} from "../middleware/JWTAction";
+
+import { checkRole } from "../Middleware/authMiddleware";
 require("dotenv").config();
 let router = express.Router();
 let initWebRount = (app) => {
   // Public routes
-  router.use("/auth", authRouter);
+  router.use("/", authRouter);
   router.use("/user", userRouter);
   router.use("/service", serviceRouter);
   router.use("/review", reviewRouter);
-  router.use("/admin", adminRouter);
 
-  // Protected routes
-  router.all("*", checkTokenWithCookie, checkAuthentication);
-  // router.post("/user", userController.createUser);
-  // router.get("/user", userController.getUser);
+  //only admin can access
+  router.use("/admin", checkRole(['admin']), adminRouter);
+
 
   return app.use("/api/", router);
 };

@@ -4,8 +4,6 @@ const { createToken, createRefreshToken, verifyRefreshToken } = require("../midd
 // import { BlacklistedToken } from "../models";
 
 const registerUser = async (userData) => {
-
-
   try {
     // Check if user already exists
     const existingUser = await User.findOne({ email: userData.email });

@@ -5,15 +5,15 @@ import regexPatterns, { phoneVN } from "../utils/toRegex";
 const userController = {
     createUser: async (req, res) => {
         try {
-            const { name, email, password, phone, role } = req.body;
-            if (!email || !password || !name || !phone || !role) {
+            const { username, email, password, phone, role } = req.body;
+            if (!email || !password || !username || !phone || !role) {
                 return BAD_REQUEST(res, "Missing required fields");
             } else if (!regexPatterns.email(email)) {
                 return BAD_REQUEST(res, "Invalid email format");
             } else if (password.length < 6) {
                 return BAD_REQUEST(res, "Password must be at least 6 characters long");
             }
-            const response = await userService.createUser({ name, email, password, phone, role });
+            const response = await userService.createUser({ username, email, password, phone, role });
             if (!response.success) {
                 // Xử lý các trường hợp lỗi khác nhau
                 switch (response.statusCode) {
@@ -35,6 +35,10 @@ const userController = {
         }
     },
 
+    getMe: async (req, res) => {
+        const result = await userService.getUserById(req.user.id)
+        return OK(res, 'Get me success', result)
+    },
     getAllUsers: async (req, res) => {
         const result = await userService.getAllUsers(req.query);
         return OK(res, 'Get all user success', result)
@@ -63,7 +67,9 @@ const userController = {
     updateUserById: async (req, res) => {
         const { id } = req.params;
         const data = req.body;
+
         const result = await userService.updateUserById(id, data);
+        // console.log(result)
         return res.status(result.EC).json(result);
     },
 

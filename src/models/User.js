@@ -6,15 +6,13 @@ const userSchema = new mongoose.Schema(
     email: { type: String, required: true, unique: true },
     password: { type: String, required: true },
     phone: { type: Number, required: true },
-
-
-    
-    role: { 
-      type: String, 
-      enum: ["guest", "staff", "admin"], 
-      default: "guest" 
+    staus: { type: Boolean, default: false },
+    role: {
+      type: String,
+      enum: ["guest", "staff", "admin"],
+      default: "guest"
     },
-    permissions: [{ 
+    permissions: [{
       type: String,
       enum: [
         "create_data",
@@ -37,7 +35,7 @@ const userSchema = new mongoose.Schema(
 // Thêm permissions mặc định dựa trên role
 
 // this function only run when update role
-userSchema.pre('save', function(next) {
+userSchema.pre('save', function (next) {
   if (this.isModified('role')) {
     switch (this.role) {
       case 'admin':
@@ -62,6 +60,8 @@ userSchema.pre('save', function(next) {
   }
   next();
 });
+
+userSchema.plugin(require("./plugin/index"));
 
 const User = mongoose.model("user", userSchema);
 module.exports = User;

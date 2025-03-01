@@ -2,6 +2,7 @@ const express = require("express");
 import adminController from "../controllers/adminController";
 import { checkPermission, checkRole } from "../Middleware/authMiddleware";
 import permissionController from "../controllers/permissionController";
+import userController from "../controllers/userController";
 const router = express.Router();
 
 router.get("/service/", adminController.getAllServices);
@@ -11,6 +12,11 @@ router.get("/service/combo/", adminController.getAllComboServices);
 router.get("/service/:id", adminController.getServiceByIdByAdmin);
 router.put("/service/:id", adminController.updateStatusByAdmin);
 
+//user
+router.get('/users/', userController.getAllUsers);
+router.get('/users/getCustomer', userController.getUserByRoleCustomer);
+router.get('/users/getStaff', userController.getUserByRoleStaff);
+router.get('/users/getTherapist', userController.getUserByRoleTherapist);
 
 // Permission management routes
 router.put("/users/:userId/role",

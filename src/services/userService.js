@@ -1,5 +1,5 @@
-import User from "../models/User";
 import bcrypt from "bcryptjs";
+import User from "../models/User";
 const _ = require('lodash');
 
 const userService = {
@@ -37,7 +37,7 @@ const userService = {
                     user: {
                         id: newUser.id,
                         email: newUser.email,
-                        name: newUser.name,
+                        username: newUser.username,
                         phone: newUser.phone,
                         role: newUser.role
                     }
@@ -62,19 +62,20 @@ const userService = {
             'email',
             'role',
         ]);
-        return await User.paginate(newFilter, {
-            sortBy,
-            limit: limit ?? 20,
-            page: page ?? 1,
+        const options = {
+            sortBy: sortBy || "createdAt",
+            limit: limit ? parseInt(limit) : 20,
+            page: page ? parseInt(page) : 1,
+            allowSearchFields: ["email"],
             fields,
-            allowSearchFields: ['email'],
-            q: q ?? '',
-        });
+            q: q ?? "",
+        };
+        return await User.paginate(newFilter, options);
     },
 
     getUserByRoleCustomer: async (query) => {
         const { sortBy, limit, page, q } = query;
-        const filter = { role: 'user', isDeleted: false };
+        const filter = { role: 'user' };
 
         return await User.paginate(filter, {
             sortBy: sortBy ?? 'createdAt',
@@ -87,7 +88,7 @@ const userService = {
 
     getUserByRoleStaff: async (query) => {
         const { sortBy, limit, page, q } = query;
-        const filter = { role: 'staff', isDeleted: false };
+        const filter = { role: 'staff' };
 
         return await User.paginate(filter, {
             sortBy: sortBy ?? 'createdAt',
@@ -99,7 +100,7 @@ const userService = {
     },
     getUserByRoleTherapist: async (query) => {
         const { sortBy, limit, page, q } = query;
-        const filter = { role: 'therapist', isDeleted: false };
+        const filter = { role: 'therapist' };
 
         return await User.paginate(filter, {
             sortBy: sortBy ?? 'createdAt',
@@ -112,7 +113,7 @@ const userService = {
 
     getUserById: async (id) => {
         try {
-            let user = await User.findById(id);
+            let user = await User.findById(id).select("-password -permissions");
             if (user && !user.isDeleted) {
                 return {
                     EC: 200,
@@ -136,6 +137,13 @@ const userService = {
 
     updateUserById: async (id, data) => {
         try {
+            if (data.email || data.password) {
+                return {
+                    EC: 400,
+                    EM: "User updated faild, can not change password and password",
+                    DT: ""
+                }
+            }
             let user = await User.findByIdAndUpdate(id, data, { new: true });
             if (user && !user.isDeleted) {
                 return {

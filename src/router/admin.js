@@ -3,6 +3,7 @@ import adminController from "../controllers/adminController";
 import { checkPermission, checkRole } from "../Middleware/authMiddleware";
 import permissionController from "../controllers/permissionController";
 import userController from "../controllers/userController";
+import blogController from "../controllers/blogController";
 const router = express.Router();
 
 router.get("/service/", adminController.getAllServices);
@@ -18,6 +19,15 @@ router.get('/users/getCustomer', userController.getUserByRoleCustomer);
 router.get('/users/getStaff', userController.getUserByRoleStaff);
 router.get('/users/getTherapist', userController.getUserByRoleTherapist);
 
+
+//blog
+router.get("/blogs/:id", blogController.getBlogById);
+router.put("/blogs/:id", blogController.confirmBlog);
+router.delete("/blogs/:id", blogController.deleteBlogAdmin);
+router.get("/blogs/", blogController.getAllBlogs);
+
+
+router.get("/blogs/search/:key")
 // Permission management routes
 router.put("/users/:userId/role",
     checkRole(['admin']),

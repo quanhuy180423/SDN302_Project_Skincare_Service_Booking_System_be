@@ -23,14 +23,12 @@ module.exports = models;
 
 const User = require('./User');
 const RefreshToken = require('./RefreshToken');
-const Product = require('./Product');
 const Service = require('./Service');
 const { default: Blog } = require('./Blog');
 
 module.exports = {
     User,
     RefreshToken,
-    Product,
     Service,
     Blog
 };

@@ -66,6 +66,13 @@ const adminController = {
         .json({ message: "No services found", services: [] });
     }
   }),
+
+  getAppointmentByCustomerId: catchAsync(async (req, res) => {
+    const appointments = await adminService.getAppointmentByCustomerId(
+      req.params.id
+    );
+    return OK(res, "Get appointment by Customer ID successfully", appointments);
+  }),
 };
 
 export default adminController;

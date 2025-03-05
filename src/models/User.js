@@ -9,23 +9,25 @@ const userSchema = new mongoose.Schema(
     staus: { type: Boolean, default: false },
     role: {
       type: String,
-      enum: ["guest", "staff", "admin"],
-      default: "guest"
+      enum: ["guest", "staff", "therapist", "admin"],
+      default: "guest",
     },
-    permissions: [{
-      type: String,
-      enum: [
-        "create_data",
-        "edit_data",
-        "delete_data",
-        "view_data",
-        "book_service",
-        "manage_bookings",
-        "manage_users",
-        "manage_services",
-        "view_reports"
-      ]
-    }]
+    permissions: [
+      {
+        type: String,
+        enum: [
+          "create_data",
+          "edit_data",
+          "delete_data",
+          "view_data",
+          "book_service",
+          "manage_bookings",
+          "manage_users",
+          "manage_services",
+          "view_reports",
+        ],
+      },
+    ],
   },
   {
     timestamps: true,
@@ -35,26 +37,32 @@ const userSchema = new mongoose.Schema(
 // Thêm permissions mặc định dựa trên role
 
 // this function only run when update role
-userSchema.pre('save', function (next) {
-  if (this.isModified('role')) {
+userSchema.pre("save", function (next) {
+  if (this.isModified("role")) {
     switch (this.role) {
-      case 'admin':
+      case "admin":
         this.permissions = [
-          "create_data", "edit_data", "delete_data", "view_data",
-          "book_service", "manage_bookings", "manage_users",
-          "manage_services", "view_reports"
+          "create_data",
+          "edit_data",
+          "delete_data",
+          "view_data",
+          "book_service",
+          "manage_bookings",
+          "manage_users",
+          "manage_services",
+          "view_reports",
         ];
         break;
-      case 'staff':
+      case "staff":
         this.permissions = [
-          "view_data", "book_service", "manage_bookings",
-          "view_reports"
+          "view_data",
+          "book_service",
+          "manage_bookings",
+          "view_reports",
         ];
         break;
-      case 'guest':
-        this.permissions = [
-          "view_data", "book_service"
-        ];
+      case "guest":
+        this.permissions = ["view_data", "book_service"];
         break;
     }
   }
@@ -64,4 +72,4 @@ userSchema.pre('save', function (next) {
 userSchema.plugin(require("./plugin/index"));
 
 const User = mongoose.model("user", userSchema);
-module.exports = User;
+export default User;

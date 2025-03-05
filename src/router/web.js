@@ -4,6 +4,7 @@ import authRouter from "./auth";
 import serviceRouter from "./service";
 import reviewRouter from "./review";
 import adminRouter from "./admin";
+import appointmentRouter from "./appointment";
 import { checkRole } from "../Middleware/authMiddleware";
 import staffRouter from "./staff";
 require("dotenv").config();
@@ -14,13 +15,13 @@ let initWebRount = (app) => {
   router.use("/user", userRouter);
   router.use("/service", serviceRouter);
   router.use("/review", reviewRouter);
-  
+  router.use("/appointment", appointmentRouter);
+
   //only staff can access
-  router.use("/staff", checkRole(['staff']), staffRouter);
+  router.use("/staff", checkRole(["staff"]), staffRouter);
 
   //only admin can access
-  router.use("/admin", checkRole(['admin']), adminRouter);
-
+  router.use("/admin", checkRole(["admin"]), adminRouter);
 
   return app.use("/api/", router);
 };

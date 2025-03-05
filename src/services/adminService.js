@@ -1,6 +1,7 @@
 import _ from "lodash";
 import Service from "../models/Service";
 import APIError from "../utils/APIError";
+import Appointment from "../models/Appointment";
 
 const adminService = {
   getAllServices: async (query) => {
@@ -63,6 +64,18 @@ const adminService = {
       q: q ?? "",
     };
     return await Service.paginate(filter, options);
+  },
+
+  getAppointmentByCustomerId: async (id) => {
+    const appointment = await Appointment.find({ customer: id })
+      .populate("customer")
+      .populate("service")
+      .populate("therapist")
+      .exec();
+    if (!appointment) {
+      throw new APIError(404, "Appointment not found");
+    }
+    return appointment;
   },
 };
 
